@@ -1,0 +1,12 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <RootNamespace>NutHub.Drivers.Snmp</RootNamespace>
+  </PropertyGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\NutHub.Core\NutHub.Core.csproj" />
+    <PackageReference Include="Lextm.SharpSnmpLib" />
+  </ItemGroup>
+  <ItemGroup>
+    <InternalsVisibleTo Include="NutHub.Drivers.Snmp.Tests" />
+  </ItemGroup>
+</Project>

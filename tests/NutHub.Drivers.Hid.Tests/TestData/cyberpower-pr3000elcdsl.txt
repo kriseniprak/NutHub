@@ -1,0 +1,108 @@
+# CyberPower PR3000ELCDSL (USB 0764:0601): report descriptor and the values NUT 2.8.4 read from it (debug output).
+# Source: https://github.com/networkupstools/nut/issues/3089
+vendor 0764
+product 0601
+descriptor 05 84 09 04 a1 01 09 24 a1 00 85 01 09 fe 75 08 95 01 15 00 26 ff 00 b1 23 85 02 09 ff b1 23 85 1b 06 01 ff 95 01 09 d0 b1 22 85 03 05 85 09 89 b1 23 85 04 09 8f b1 23 85 05 09 8b b1 23 85 06 09 2c b1 23 85 07 75 08 95 06 25 64 09 83 09 8d 09 8e 09 8c 09 29 09 67 b1 23 85 08 75 08 95 01 65 00 09 66 81 23 09 66 b1 a3 09 68 75 10 27 ff ff 00 00 66 01 10 81 23 09 68 b1 a3 09 2a 26 58 02 81 23 09 2a b1 a2 85 09 75 10 26 ff 00 05 84 09 40 67 21 d1 f0 00 55 06 b1 23 85 0a 09 30 b1 a3 09 02 a1 02 65 00 55 00 85 0b 75 01 95 06 25 01 05 85 09 d0 09 44 09 45 09 42 09 46 09 43 81 23 09 d0 09 44 09 45 09 42 09 46 09 43 b1 a3 75 02 95 01 81 01 b1 01 c0 85 0c 05 84 09 5a 75 08 15 01 25 03 b1 a2 09 5a 81 22 85 0d 09 fd 15 00 26 ff 00 b1 23 c0 05 84 09 1a a1 00 85 1c 09 32 75 08 15 00 25 46 66 01 f0 55 00 b1 a3 85 0e 05 84 09 40 75 08 67 21 d1 f0 00 55 07 b1 23 85 0f 75 10 09 30 b1 a3 c0 09 1c a1 00 85 10 09 53 16 c4 00 26 d0 00 b1 a2 09 53 81 23 09 54 16 f9 00 26 05 01 b1 a2 09 54 81 23 85 12 09 30 b1 a2 75 08 15 00 26 ff 00 65 00 55 00 85 13 09 35 b1 a3 85 14 09 58 25 06 b1 a2 09 58 81 22 85 15 09 57 75 10 15 ff 26 ff 7f 35 c4 47 c4 ff 1d 00 66 01 10 b1 a2 85 16 09 56 b1 a2 85 17 09 6e 75 01 15 00 25 01 35 00 45 00 65 00 b1 a3 09 6f b1 a3 09 65 b1 a3 75 05 b1 01 85 18 75 10 09 44 26 b8 0b 66 21 d1 55 07 b1 a3 85 1d 09 32 75 08 15 00 25 46 66 01 f0 55 00 b1 a3 85 1a 06 01 ff 65 00 55 00 75 08 15 00 25 02 09 43 b1 a2 09 43 81 23 c0 06 01 ff 09 1d a1 00 09 19 a1 02 85 25 09 20 65 00 55 00 15 00 25 01 95 01 75 01 b1 82 75 07 b1 03 85 2c 09 21 75 01 b1 83 09 21 81 03 75 07 b1 83 81 03 c0 09 1a a1 02 85 26 09 01 75 01 b1 82 75 07 b1 83 85 27 09 02 25 03 75 08 b1 03 c0 09 1b a1 02 85 28 09 16 65 00 55 00 15 00 25 3e 75 08 95 01 b1 83 09 16 81 03 09 18 26 ff 00 95 3e b2 83 01 09 18 82 03 01 85 29 09 15 15 01 25 3e 95 01 b1 02 09 15 91 02 09 17 15 00 26 ff 00 95 3e b2 02 01 09 17 92 02 01 85 2d 75 01 95 03 25 01 09 10 09 1e 09 1f b1 83 09 10 09 1e 09 1f 81 03 75 05 95 01 b1 83 81 03 85 2a 09 13 75 01 b1 82 75 07 b1 83 85 2b 09 14 75 01 b1 82 75 07 b1 83 c0 c0 c0
+report 01 01
+report 02 02
+report 03 04
+report 04 03
+report 05 01
+report 06 02
+report 07 64 05 0a 14 0a 64
+report 08 64 9e 16 2c 01
+report 09 e0 01
+report 0a e0 01
+report 0b 11
+report 0c 01
+report 0d 03
+report 0e e6
+report 0f e1 00
+report 10 d0 00 f9 00
+report 12 e1 00
+report 13 06
+report 14 01
+report 15 ff ff
+report 16 ff ff
+report 17 00
+report 18 8c 0a
+report 1a 00
+report 1b 05
+report 1c 32
+report 1d 32
+report 25 00
+report 26 00
+report 27 01
+report 2a 00
+report 2b 00
+report 2c 00
+report 2d 00
+value UPS.PowerSummary.iProduct|Feature|01|0|8|1|01 01
+value UPS.PowerSummary.iSerialNumber|Feature|02|0|8|2|02 02
+value UPS.PowerSummary.CPSFirmwareVersion|Feature|1b|0|8|5|1b 05
+value UPS.PowerSummary.iDeviceChemistry|Feature|03|0|8|4|03 04
+value UPS.PowerSummary.iOEMInformation|Feature|04|0|8|3|04 03
+value UPS.PowerSummary.Rechargeable|Feature|05|0|8|1|05 01
+value UPS.PowerSummary.CapacityMode|Feature|06|0|8|2|06 02
+value UPS.PowerSummary.DesignCapacity|Feature|07|0|8|100|07 64 05 0a 14 0a 64
+value UPS.PowerSummary.CapacityGranularity1|Feature|07|8|8|5|07 64 05 0a 14 0a 64
+value UPS.PowerSummary.CapacityGranularity2|Feature|07|16|8|10|07 64 05 0a 14 0a 64
+value UPS.PowerSummary.WarningCapacityLimit|Feature|07|24|8|20|07 64 05 0a 14 0a 64
+value UPS.PowerSummary.RemainingCapacityLimit|Feature|07|32|8|10|07 64 05 0a 14 0a 64
+value UPS.PowerSummary.FullChargeCapacity|Feature|07|40|8|100|07 64 05 0a 14 0a 64
+value UPS.PowerSummary.RemainingCapacity|Input|08|0|8|100|08 64 9e 16 2c 01
+value UPS.PowerSummary.RemainingCapacity|Feature|08|0|8|100|08 64 9e 16 2c 01
+value UPS.PowerSummary.RunTimeToEmpty|Input|08|8|16|5790|08 64 9e 16 2c 01
+value UPS.PowerSummary.RunTimeToEmpty|Feature|08|8|16|5790|08 64 9e 16 2c 01
+value UPS.PowerSummary.RemainingTimeLimit|Input|08|24|16|300|08 64 9e 16 2c 01
+value UPS.PowerSummary.RemainingTimeLimit|Feature|08|24|16|300|08 64 9e 16 2c 01
+value UPS.PowerSummary.ConfigVoltage|Feature|09|0|16|22.4|09 e0 01
+value UPS.PowerSummary.Voltage|Feature|0a|0|16|22.4|0a e0 01
+value UPS.PowerSummary.PresentStatus.ACPresent|Input|0b|0|1|1|0b 11
+value UPS.PowerSummary.PresentStatus.Charging|Input|0b|1|1|0|0b 11
+value UPS.PowerSummary.PresentStatus.Discharging|Input|0b|2|1|0|0b 11
+value UPS.PowerSummary.PresentStatus.BelowRemainingCapacityLimit|Input|0b|3|1|0|0b 11
+value UPS.PowerSummary.PresentStatus.FullyCharged|Input|0b|4|1|1|0b 11
+value UPS.PowerSummary.PresentStatus.RemainingTimeLimitExpired|Input|0b|5|1|0|0b 11
+value UPS.PowerSummary.PresentStatus.ACPresent|Feature|0b|0|1|1|0b 11
+value UPS.PowerSummary.PresentStatus.Charging|Feature|0b|1|1|0|0b 11
+value UPS.PowerSummary.PresentStatus.Discharging|Feature|0b|2|1|0|0b 11
+value UPS.PowerSummary.PresentStatus.BelowRemainingCapacityLimit|Feature|0b|3|1|0|0b 11
+value UPS.PowerSummary.PresentStatus.FullyCharged|Feature|0b|4|1|1|0b 11
+value UPS.PowerSummary.PresentStatus.RemainingTimeLimitExpired|Feature|0b|5|1|0|0b 11
+value UPS.PowerSummary.AudibleAlarmControl|Feature|0c|0|8|1|0c 01
+value UPS.PowerSummary.AudibleAlarmControl|Input|0c|0|8|1|0c 01
+value UPS.PowerSummary.iManufacturer|Feature|0d|0|8|3|0d 03
+value UPS.Input.Frequency|Feature|1c|0|8|50|1c 32
+value UPS.Input.ConfigVoltage|Feature|0e|0|8|70|0e e6
+value UPS.Input.Voltage|Feature|0f|0|16|70|0f e1 00
+value UPS.Output.LowVoltageTransfer|Feature|10|0|16|208|10 d0 00 f9 00
+value UPS.Output.LowVoltageTransfer|Input|10|0|16|208|10 d0 00 f9 00
+value UPS.Output.HighVoltageTransfer|Feature|10|16|16|249|10 d0 00 f9 00
+value UPS.Output.HighVoltageTransfer|Input|10|16|16|249|10 d0 00 f9 00
+value UPS.Output.Voltage|Feature|12|0|16|225|12 e1 00
+value UPS.Output.PercentLoad|Feature|13|0|8|6|13 06
+value UPS.Output.Test|Feature|14|0|8|1|14 01
+value UPS.Output.Test|Input|14|0|8|1|14 01
+value UPS.Output.DelayBeforeShutdown|Feature|15|0|16|-60|15 ff ff
+value UPS.Output.DelayBeforeStartup|Feature|16|0|16|-60|16 ff ff
+value UPS.Output.Boost|Feature|17|0|1|0|17 00
+value UPS.Output.Buck|Feature|17|1|1|0|17 00
+value UPS.Output.Overload|Feature|17|2|1|0|17 00
+value UPS.Output.ConfigActivePower|Feature|18|0|16|2700|18 8c 0a
+value UPS.Output.Frequency|Feature|1d|0|8|50|1d 32
+value UPS.Output.CPSInputSensitivity|Feature|1a|0|8|0|1a 00
+value UPS.Output.CPSInputSensitivity|Input|1a|0|8|0|1a 00
+value UPS.ff01001d.ff010019.ff010020|Feature|25|0|1|0|25 00
+value UPS.ff01001d.ff010019.ff010021|Feature|2c|0|1|0|2c 00
+value UPS.ff01001d.ff010019.ff010021|Input|2c|0|1|0|2c 00
+value UPS.ff01001d.ff01001a.ff010001|Feature|26|0|1|0|26 00
+value UPS.ff01001d.ff01001a.ff010002|Feature|27|0|8|1|27 01
+value UPS.ff01001d.ff01001b.ff010010|Feature|2d|0|1|0|2d 00
+value UPS.ff01001d.ff01001b.ff01001e|Feature|2d|1|1|0|2d 00
+value UPS.ff01001d.ff01001b.ff01001f|Feature|2d|2|1|0|2d 00
+value UPS.ff01001d.ff01001b.ff010010|Input|2d|0|1|0|2d 00
+value UPS.ff01001d.ff01001b.ff01001e|Input|2d|1|1|0|2d 00
+value UPS.ff01001d.ff01001b.ff01001f|Input|2d|2|1|0|2d 00
+value UPS.ff01001d.ff01001b.ff010013|Feature|2a|0|1|0|2a 00
+value UPS.ff01001d.ff01001b.ff010014|Feature|2b|0|1|0|2b 00

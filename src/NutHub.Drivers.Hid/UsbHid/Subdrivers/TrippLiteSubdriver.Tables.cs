@@ -1,0 +1,180 @@
+// Mapping tables ported from Network UPS Tools, drivers/tripplite-hid.c (TrippLite HID 0.87),
+// GPL-2.0-or-later. Keep them in sync with that file rather than editing entries by hand.
+using NutHub.Drivers.Hid.Descriptors;
+using static NutHub.Drivers.Hid.UsbHid.HidMapFlags;
+
+namespace NutHub.Drivers.Hid.UsbHid.Subdrivers;
+
+internal sealed partial class TrippLiteSubdriver
+{
+    /// <summary>The NUT subdriver this one is ported from, reported as driver.version.data.</summary>
+    public override string Version => "TrippLite HID 0.87";
+
+    /// <summary>Vendor-specific usage names (NUT tripplite_usage_lkp).</summary>
+    private static readonly HidUsageTable VendorUsageTable = new(
+    [
+        ("TLCustom", 0xffff0010),
+        ("TLDelayBeforeStartup", 0xffff0056),
+        ("TLLowVoltageTransferMax", 0xffff0057),
+        ("TLLowVoltageTransferMin", 0xffff0058),
+        ("TLHighVoltageTransferMax", 0xffff0059),
+        ("TLHighVoltageTransferMin", 0xffff005a),
+        ("OutletState", 0xffff007a),
+        ("OutletCount", 0xffff007b),
+        ("UPSFirmwareVersion", 0xffff007c),
+        ("CommunicationProtocolVersion", 0xffff007d),
+        ("CommunicationVersion", 0xffff007e),
+        ("iUPSPartNumber", 0xffff007f),
+        ("AutoOnDelay", 0xffff0080),
+        ("TLWatchdog", 0xffff0092),
+        ("TLOutletsAvailableMask", 0xffff0095),
+        ("TLOutletsStatusMask", 0xffff0096),
+        ("TLCharging", 0x00840044),
+        ("TLDischarging", 0x00840045),
+        ("TLNeedReplacement", 0x0084004b),
+        ("TLACPresent", 0x008400d0),
+    ]);
+
+    /// <summary>The USB ids this subdriver supports (NUT tripplite_usb_device_table).</summary>
+    private static readonly UsbDeviceId[] DeviceIds =
+    [
+        new(0x09ae, 0x1003, "battery_scale_0dot1"),
+        new(0x09ae, 0x1007, "battery_scale_0dot1"),
+        new(0x09ae, 0x1008, "battery_scale_0dot1"),
+        new(0x09ae, 0x1009, "battery_scale_0dot1"),
+        new(0x09ae, 0x1010, "battery_scale_0dot1"),
+        new(0x09ae, 0x1330, "battery_scale_1dot0"),
+        new(0x09ae, 0x2005, "battery_scale_0dot1"),
+        new(0x09ae, 0x2007, "battery_scale_0dot1"),
+        new(0x09ae, 0x2008, "battery_scale_0dot1"),
+        new(0x09ae, 0x2009, "battery_scale_0dot1"),
+        new(0x09ae, 0x2010, "battery_scale_0dot1"),
+        new(0x09ae, 0x2011, "battery_scale_0dot1"),
+        new(0x09ae, 0x2012, "battery_scale_0dot1"),
+        new(0x09ae, 0x2013, "battery_scale_0dot1"),
+        new(0x09ae, 0x2014, "battery_scale_0dot1"),
+        new(0x09ae, 0x3008, "battery_scale_1dot0"),
+        new(0x09ae, 0x3009, "battery_scale_1dot0"),
+        new(0x09ae, 0x3010, "battery_scale_1dot0"),
+        new(0x09ae, 0x3011, "battery_scale_1dot0"),
+        new(0x09ae, 0x3012, "battery_scale_1dot0"),
+        new(0x09ae, 0x3013, "battery_scale_1dot0"),
+        new(0x09ae, 0x3014, "battery_scale_1dot0"),
+        new(0x09ae, 0x3015, "battery_scale_1dot0"),
+        new(0x09ae, 0x3016, "smart1500lcdt_scale"),
+        new(0x09ae, 0x3024, "smart1500lcdt_scale"),
+        new(0x09ae, 0x4001, "battery_scale_1dot0"),
+        new(0x09ae, 0x4002, "battery_scale_1dot0"),
+        new(0x09ae, 0x4003, "battery_scale_1dot0"),
+        new(0x09ae, 0x4004, "battery_scale_1dot0"),
+        new(0x09ae, 0x4005, "battery_scale_1dot0"),
+        new(0x09ae, 0x4006, "battery_scale_1dot0"),
+        new(0x09ae, 0x4007, "battery_scale_1dot0"),
+        new(0x09ae, 0x4008, "battery_scale_1dot0"),
+        new(0x03f0, 0x0001, "battery_scale_1dot0"),
+        new(0x03f0, 0x1fe0, "battery_scale_1dot0"),
+        new(0x03f0, 0x1fe1, "battery_scale_1dot0"),
+        new(0x03f0, 0x1fe2, "battery_scale_1dot0"),
+        new(0x03f0, 0x1fe3, "battery_scale_1dot0"),
+        new(0x03f0, 0x1f06, "battery_scale_1dot0"),
+        new(0x03f0, 0x1f08, "battery_scale_1dot0"),
+        new(0x03f0, 0x1f09, "battery_scale_1dot0"),
+        new(0x03f0, 0x1f0a, "battery_scale_1dot0"),
+        new(0x05dd, 0xa011, "battery_scale_1dot0"),
+        new(0x05dd, 0xa0a0, "battery_scale_1dot0"),
+    ];
+
+    /// <summary>Builds the HID to NUT mapping table; function lookups bind to this instance's state.</summary>
+    private HidMapping[] BuildMappings()
+    {
+        NutLookup trippliteBattvolt = NutLookup.Create([], TrippliteBattvoltFun, null);
+        NutLookup trippliteChemistry = NutLookup.Create([], TrippliteChemistryFun, null);
+        NutLookup trippliteIoamp = NutLookup.Create([], TrippliteIoampFun, null);
+        NutLookup trippliteIofreq = NutLookup.Create([], TrippliteIofreqFun, null);
+        NutLookup trippliteIovolt = NutLookup.Create([], TrippliteIovoltFun, null);
+
+        return
+        [
+            new("device.part", 0, "UPS.TLCustom.[1].iUPSPartNumber", "%s", Static, CommonLookups.StringidConversion),
+            new("battery.charge", 0, "UPS.PowerSummary.RemainingCapacity", "%.0f", None, null),
+            new("battery.charge", 0, "UPS.BatterySystem.Battery.RemainingCapacity", "%.0f", None, null),
+            new("battery.charge.low", 5, "UPS.PowerSummary.RemainingCapacityLimit", "%.0f", Rw | Str | SemiStatic, null),
+            new("battery.charge.warning", 0, "UPS.PowerSummary.WarningCapacityLimit", "%.0f", None, null),
+            new("battery.runtime", 0, "UPS.PowerSummary.RunTimeToEmpty", "%.0f", None, null),
+            new("battery.voltage.nominal", 0, "UPS.BatterySystem.Battery.ConfigVoltage", "%.1f", Static, null),
+            new("battery.voltage", 0, "UPS.BatterySystem.Battery.Voltage", "%s", None, trippliteBattvolt),
+            new("battery.type", 0, "UPS.PowerSummary.iDeviceChemistry", "%s", Static, trippliteChemistry),
+            new("battery.temperature", 0, "UPS.BatterySystem.Temperature", "%s", None, CommonLookups.KelvinCelsiusConversion),
+            new("ups.delay.start", 10, "UPS.OutletSystem.Outlet.DelayBeforeStartup", "30", Rw | Str | Absent, null),
+            new("ups.delay.start", 10, "UPS.OutletSystem.Outlet.TLDelayBeforeStartup", "30", Rw | Str | Absent, null),
+            new("ups.delay.shutdown", 10, "UPS.OutletSystem.Outlet.DelayBeforeShutdown", "20", Rw | Str | Absent, null),
+            new("ups.timer.start", 0, "UPS.OutletSystem.Outlet.DelayBeforeStartup", "%.0f", QuickPoll, null),
+            new("ups.timer.start", 0, "UPS.OutletSystem.Outlet.TLDelayBeforeStartup", "%.0f", QuickPoll, null),
+            new("ups.timer.shutdown", 0, "UPS.OutletSystem.Outlet.DelayBeforeShutdown", "%.0f", QuickPoll, null),
+            new("ups.timer.reboot", 0, "UPS.OutletSystem.Outlet.DelayBeforeReboot", "%.0f", QuickPoll, null),
+            new("ups.test.result", 0, "UPS.BatterySystem.Test", "%s", None, CommonLookups.TestReadInfo),
+            new("ups.beeper.status", 0, "UPS.PowerSummary.AudibleAlarmControl", "%s", None, CommonLookups.BeeperInfo),
+            new("ups.power.nominal", 0, "UPS.Flow.ConfigApparentPower", "%.0f", Static, null),
+            new("ups.power", 0, "UPS.OutletSystem.Outlet.ApparentPower", "%.1f", None, null),
+            new("ups.power", 0, "UPS.PowerConverter.Output.ApparentPower", "%.1f", None, null),
+            new("ups.realpower.nominal", 0, "UPS.Flow.ConfigActivePower", "%.0f", Static, null),
+            new("ups.realpower", 0, "UPS.OutletSystem.Outlet.ActivePower", "%.1f", None, null),
+            new("ups.realpower", 0, "UPS.PowerConverter.Output.ActivePower", "%.1f", None, null),
+            new("ups.load", 0, "UPS.OutletSystem.Outlet.PercentLoad", "%.0f", None, null),
+            new("ups.firmware", 0, "UPS.TLCustom.[1].UPSFirmwareVersion", "%.0f", Static, null),
+            new("ups.watchdog.status", 0, "UPS.OutletSystem.Outlet.TLWatchdog", "%.0f", None, null),
+            new("BOOL", 0, "UPS.PowerSummary.PresentStatus.InternalFailure", null, None, CommonLookups.CommfaultInfo),
+            new("BOOL", 0, "UPS.PowerSummary.PresentStatus.ShutdownImminent", null, None, CommonLookups.ShutdownimmInfo),
+            new("BOOL", 0, "UPS.PowerSummary.PresentStatus.ACPresent", null, QuickPoll, CommonLookups.OnlineInfo),
+            new("BOOL", 0, "UPS.PowerSummary.PresentStatus.BelowRemainingCapacityLimit", null, QuickPoll, CommonLookups.LowbattInfo),
+            new("BOOL", 0, "UPS.PowerSummary.PresentStatus.FullyCharged", null, QuickPoll, CommonLookups.FullychargedInfo),
+            new("BOOL", 0, "UPS.PowerSummary.PresentStatus.Charging", null, QuickPoll, CommonLookups.ChargingInfo),
+            new("BOOL", 0, "UPS.PowerSummary.PresentStatus.Discharging", null, QuickPoll, CommonLookups.DischargingInfo),
+            new("BOOL", 0, "UPS.PowerSummary.PresentStatus.FullyDischarged", null, QuickPoll, CommonLookups.DepletedInfo),
+            new("BOOL", 0, "UPS.PowerSummary.PresentStatus.NeedReplacement", null, None, CommonLookups.ReplacebattInfo),
+            new("BOOL", 0, "UPS.PowerSummary.PresentStatus.TLACPresent", null, QuickPoll, CommonLookups.OnlineInfo),
+            new("BOOL", 0, "UPS.PowerSummary.PresentStatus.TLDischarging", null, QuickPoll, CommonLookups.DischargingInfo),
+            new("ups.load.nominal", 0, "UPS.Flow.ConfigPercentLoad", "%.0f", None, null),
+            new("BOOL", 0, "UPS.PowerSummary.PresentStatus.TLCharging", null, QuickPoll, CommonLookups.ChargingInfo),
+            new("BOOL", 0, "UPS.PowerSummary.PresentStatus.TLNeedReplacement", null, None, CommonLookups.ReplacebattInfo),
+            new("BOOL", 0, "UPS.PowerConverter.PresentStatus.VoltageOutOfRange", null, None, CommonLookups.VrangeInfo),
+            new("BOOL", 0, "UPS.PowerConverter.PresentStatus.Buck", null, None, CommonLookups.TrimInfo),
+            new("BOOL", 0, "UPS.PowerConverter.PresentStatus.Boost", null, None, CommonLookups.BoostInfo),
+            new("BOOL", 0, "UPS.PowerConverter.PresentStatus.Overload", null, None, CommonLookups.OverloadInfo),
+            new("BOOL", 0, "UPS.PowerConverter.PresentStatus.OverTemperature", null, None, CommonLookups.OverheatInfo),
+            new("BOOL", 0, "UPS.PowerConverter.PresentStatus.InternalFailure", null, None, CommonLookups.CommfaultInfo),
+            new("BOOL", 0, "UPS.PowerConverter.PresentStatus.AwaitingPower", null, None, CommonLookups.AwaitingpowerInfo),
+            new("input.voltage.nominal", 0, "UPS.PowerSummary.Input.ConfigVoltage", "%.0f", Static, null),
+            new("input.voltage", 0, "UPS.PowerSummary.Input.Voltage", "%s", None, trippliteIovolt),
+            new("input.voltage", 0, "UPS.PowerConverter.Input.Voltage", "%s", None, trippliteIovolt),
+            new("input.frequency", 0, "UPS.PowerConverter.Input.Frequency", "%s", None, trippliteIofreq),
+            new("input.transfer.low", 5, "UPS.PowerConverter.Output.LowVoltageTransfer", "%.1f", Rw | Str | SemiStatic, null),
+            new("input.transfer.low.max", 0, "UPS.PowerConverter.Output.TLLowVoltageTransferMax", "%.0f", Static, null),
+            new("input.transfer.low.min", 0, "UPS.PowerConverter.Output.TLLowVoltageTransferMin", "%.0f", Static, null),
+            new("input.transfer.high", 5, "UPS.PowerConverter.Output.HighVoltageTransfer", "%.1f", Rw | Str | SemiStatic, null),
+            new("input.transfer.high.max", 0, "UPS.PowerConverter.Output.TLHighVoltageTransferMax", "%.0f", Static, null),
+            new("input.transfer.high.min", 0, "UPS.PowerConverter.Output.TLHighVoltageTransferMin", "%.0f", Static, null),
+            new("output.voltage.nominal", 0, "UPS.Flow.ConfigVoltage", "%.0f", Static, null),
+            new("output.voltage", 0, "UPS.PowerConverter.Output.Voltage", "%s", None, trippliteIovolt),
+            new("output.voltage", 0, "UPS.PowerSummary.Voltage", "%s", None, trippliteIovolt),
+            new("output.current", 0, "UPS.PowerConverter.Output.Current", "%s", None, trippliteIoamp),
+            new("output.frequency.nominal", 0, "UPS.Flow.ConfigFrequency", "%.0f", Static, null),
+            new("output.frequency", 0, "UPS.PowerConverter.Output.Frequency", "%s", None, trippliteIofreq),
+            new("test.battery.start.quick", 0, "UPS.BatterySystem.Test", "1", Cmd, null),
+            new("test.battery.start.deep", 0, "UPS.BatterySystem.Test", "2", Cmd, null),
+            new("test.battery.stop", 0, "UPS.BatterySystem.Test", "3", Cmd, null),
+            new("load.off.delay", 0, "UPS.OutletSystem.Outlet.DelayBeforeShutdown", "20", Cmd, null),
+            new("load.on.delay", 0, "UPS.OutletSystem.Outlet.DelayBeforeStartup", "30", Cmd, null),
+            new("load.on.delay", 0, "UPS.OutletSystem.Outlet.TLDelayBeforeStartup", "30", Cmd, null),
+            new("shutdown.stop", 0, "UPS.OutletSystem.Outlet.DelayBeforeShutdown", "-1", Cmd, null),
+            new("shutdown.reboot", 0, "UPS.OutletSystem.Outlet.DelayBeforeReboot", "10", Cmd, null),
+            new("shutdown.reboot", 0, "UPS.OutletSystem.Outlet.TLWatchdog", "10", Cmd, null),
+            new("reset.watchdog", 0, "UPS.OutletSystem.Outlet.TLWatchdog", "60", Cmd, null),
+            new("beeper.on", 0, "UPS.PowerSummary.AudibleAlarmControl", "2", Cmd, null),
+            new("beeper.off", 0, "UPS.PowerSummary.AudibleAlarmControl", "3", Cmd, null),
+            new("beeper.disable", 0, "UPS.PowerSummary.AudibleAlarmControl", "1", Cmd, null),
+            new("beeper.enable", 0, "UPS.PowerSummary.AudibleAlarmControl", "2", Cmd, null),
+            new("beeper.mute", 0, "UPS.PowerSummary.AudibleAlarmControl", "3", Cmd, null),
+        ];
+    }
+}

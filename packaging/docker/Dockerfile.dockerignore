@@ -1,0 +1,11 @@
+# Used by BuildKit for packaging/docker/Dockerfile (build context: the repository root).
+**/bin/
+**/obj/
+**/.vs/
+**/*.user
+.git/
+.github/
+artifacts/
+dist/
+tests/
+tools/

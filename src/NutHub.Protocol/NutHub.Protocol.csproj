@@ -1,0 +1,12 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <RootNamespace>NutHub.Protocol</RootNamespace>
+  </PropertyGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\NutHub.Core\NutHub.Core.csproj" />
+
+  </ItemGroup>
+  <ItemGroup>
+    <InternalsVisibleTo Include="NutHub.Protocol.Tests" />
+  </ItemGroup>
+</Project>

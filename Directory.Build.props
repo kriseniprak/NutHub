@@ -1,0 +1,23 @@
+<Project>
+  <!-- The single place the version is set: every assembly, the release archives and /api/system follow it. -->
+  <PropertyGroup>
+    <Version>1.0.0</Version>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <TargetFramework>net10.0</TargetFramework>
+    <LangVersion>latest</LangVersion>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <InvariantGlobalization>true</InvariantGlobalization>
+    <SatelliteResourceLanguages>en</SatelliteResourceLanguages>
+    <Company>NutHub</Company>
+    <Product>NutHub</Product>
+    <Copyright>© 2026 NutHub contributors</Copyright>
+    <NeutralLanguage>en-US</NeutralLanguage>
+    <!-- Missing XML comments are not worth a warning on internal code. -->
+    <NoWarn>$(NoWarn);CS1591</NoWarn>
+    <!-- Builds may use a separate artifacts path; never compile leftovers of a default obj/ or bin/ folder. -->
+    <DefaultItemExcludes>$(DefaultItemExcludes);obj/**;bin/**</DefaultItemExcludes>
+  </PropertyGroup>
+</Project>

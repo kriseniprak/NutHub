@@ -1,0 +1,19 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <RootNamespace>NutHub.Drivers.Serial</RootNamespace>
+    <!-- [LibraryImport] generates unsafe marshalling stubs for the Linux hidraw interop. -->
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\NutHub.Core\NutHub.Core.csproj" />
+    <PackageReference Include="System.IO.Ports" />
+    <PackageReference Include="HidSharp" />
+  </ItemGroup>
+  <ItemGroup>
+    <!-- The Linux hidraw layer, shared with NutHub.Drivers.Hid, for the USB-serial bridges. -->
+    <Compile Include="..\Shared\Hidraw\*.cs" Link="Transport\Hidraw\%(Filename)%(Extension)" />
+  </ItemGroup>
+  <ItemGroup>
+    <InternalsVisibleTo Include="NutHub.Drivers.Serial.Tests" />
+  </ItemGroup>
+</Project>

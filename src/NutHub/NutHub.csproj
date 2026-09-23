@@ -1,0 +1,50 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <RootNamespace>NutHub</RootNamespace>
+    <AssemblyName>nuthub</AssemblyName>
+    <Description>NutHub: UPS server compatible with Network UPS Tools, with a web panel.</Description>
+    <ApplicationIcon Condition="Exists('..\..\assets\nuthub.ico')">..\..\assets\nuthub.ico</ApplicationIcon>
+    <ServerGarbageCollection>false</ServerGarbageCollection>
+    <ConcurrentGarbageCollection>false</ConcurrentGarbageCollection>
+  </PropertyGroup>
+
+  <!--
+    Release builds: "dotnet publish -c Release -r <rid>" (win-x64, linux-x64, linux-arm64, linux-arm) produces one
+    self-contained executable. Only builds for a runtime identifier are affected; ordinary builds stay
+    framework-dependent. Pass -p:PublishSingleFile=false for a plain folder (as the Docker image does).
+    Trimming stays off: the drivers, System.Text.Json and ASP.NET Core rely on reflection.
+  -->
+  <PropertyGroup Condition="'$(RuntimeIdentifier)' != ''">
+    <SelfContained>true</SelfContained>
+    <PublishSingleFile Condition="'$(PublishSingleFile)' == ''">true</PublishSingleFile>
+    <IncludeNativeLibrariesForSelfExtract>true</IncludeNativeLibrariesForSelfExtract>
+    <EnableCompressionInSingleFile>true</EnableCompressionInSingleFile>
+    <PublishTrimmed>false</PublishTrimmed>
+    <DebugType>embedded</DebugType>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\NutHub.Core\NutHub.Core.csproj" />
+    <ProjectReference Include="..\NutHub.Protocol\NutHub.Protocol.csproj" />
+    <ProjectReference Include="..\NutHub.Drivers.Hid\NutHub.Drivers.Hid.csproj" />
+    <ProjectReference Include="..\NutHub.Drivers.Serial\NutHub.Drivers.Serial.csproj" />
+    <ProjectReference Include="..\NutHub.Drivers.Snmp\NutHub.Drivers.Snmp.csproj" />
+    <ProjectReference Include="..\NutHub.Drivers.Net\NutHub.Drivers.Net.csproj" />
+    <ProjectReference Include="..\NutHub.Storage\NutHub.Storage.csproj" />
+    <ProjectReference Include="..\NutHub.Services\NutHub.Services.csproj" />
+    <ProjectReference Include="..\NutHub.Web\NutHub.Web.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Extensions.Hosting.Systemd" />
+    <PackageReference Include="Microsoft.Extensions.Hosting.WindowsServices" />
+  </ItemGroup>
+
+  <!-- "nuthub service install" on Linux writes the same files install.sh installs: one source for both. -->
+  <ItemGroup>
+    <EmbeddedResource Include="..\..\packaging\linux\nuthub.service" LogicalName="NutHub.Packaging.nuthub.service" />
+    <EmbeddedResource Include="..\..\packaging\linux\99-nuthub-ups.rules" LogicalName="NutHub.Packaging.99-nuthub-ups.rules" />
+    <EmbeddedResource Include="..\..\packaging\linux\50-nuthub-poweroff.rules" LogicalName="NutHub.Packaging.50-nuthub-poweroff.rules" />
+    <EmbeddedResource Include="..\..\packaging\linux\50-nuthub-poweroff.pkla" LogicalName="NutHub.Packaging.50-nuthub-poweroff.pkla" />
+  </ItemGroup>
+</Project>

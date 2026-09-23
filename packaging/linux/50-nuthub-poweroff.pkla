@@ -1,0 +1,9 @@
+# polkit authorization for NutHub on distributions with polkit 0.105 (no JavaScript rules, e.g. Ubuntu 22.04):
+# lets the "nuthub" service account power off or reboot this machine on a power failure.
+# Installed in /etc/polkit-1/localauthority/50-local.d/ when that directory exists.
+[NutHub power off]
+Identity=unix-user:nuthub
+Action=org.freedesktop.login1.power-off;org.freedesktop.login1.power-off-multiple-sessions;org.freedesktop.login1.power-off-ignore-inhibit;org.freedesktop.login1.reboot;org.freedesktop.login1.reboot-multiple-sessions
+ResultAny=yes
+ResultInactive=yes
+ResultActive=yes

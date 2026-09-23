@@ -1,0 +1,88 @@
+name: Release
+
+on:
+  push:
+    tags: ['v*']
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    name: Test (${{ matrix.os }})
+    strategy:
+      fail-fast: true
+      matrix:
+        os: [ubuntu-latest, windows-latest]
+    runs-on: ${{ matrix.os }}
+    env:
+      DOTNET_NOLOGO: true
+      DOTNET_CLI_TELEMETRY_OPTOUT: true
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-dotnet@v6
+        with:
+          dotnet-version: 10.0.x
+      - run: dotnet test NutHub.sln -c Release --logger "console;verbosity=minimal"
+
+  package:
+    name: Package and publish
+    needs: test
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    env:
+      DOTNET_NOLOGO: true
+      DOTNET_CLI_TELEMETRY_OPTOUT: true
+    steps:
+      - uses: actions/checkout@v7
+
+      - uses: actions/setup-dotnet@v6
+        with:
+          dotnet-version: 10.0.x
+
+      - name: Check that the tag matches the version
+        run: |
+          version=$(sed -n 's:.*<Version>\(.*\)</Version>.*:\1:p' Directory.Build.props | head -n 1)
+          if [ "v$version" != "$GITHUB_REF_NAME" ]; then
+            echo "::error::Tag $GITHUB_REF_NAME does not match <Version>$version</Version> in Directory.Build.props"
+            exit 1
+          fi
+
+      - name: Build the archives
+        run: bash tools/package-release.sh --output dist
+
+      - name: Release notes from the changelog
+        run: |
+          version="${GITHUB_REF_NAME#v}"
+          awk -v v="## $version" '$0 == v { on = 1; next } /^## / && on { exit } on' CHANGELOG.md > release-notes.md
+          test -s release-notes.md || { echo "::error::CHANGELOG.md has no section '## $version'"; exit 1; }
+          {
+            echo
+            echo "### Downloads"
+            echo
+            echo "- Windows: \`nuthub-$version-win-x64.zip\`"
+            echo "- Linux: \`nuthub-$version-linux-x64.tar.gz\`, \`-linux-arm64.tar.gz\` (64-bit Raspberry Pi OS), \`-linux-arm.tar.gz\` (32-bit)"
+            echo "- Docker: build the image with \`packaging/docker\` (see the installation guide)"
+            echo
+            echo "Each archive has a \`.sha256\` file. Installation: https://github.com/kriseniprak/NutHub/blob/main/docs/installation.md"
+          } >> release-notes.md
+
+      - uses: actions/upload-artifact@v7
+        with:
+          name: release-archives
+          path: dist/
+          retention-days: 30
+
+      - name: Create the GitHub release
+        uses: softprops/action-gh-release@v3
+        with:
+          name: NutHub ${{ github.ref_name }}
+          draft: false
+          prerelease: ${{ contains(github.ref_name, '-') }}
+          body_path: release-notes.md
+          fail_on_unmatched_files: true
+          files: |
+            dist/*.zip
+            dist/*.tar.gz
+            dist/*.sha256

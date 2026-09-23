@@ -1,0 +1,19 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <RootNamespace>NutHub.Drivers.Hid</RootNamespace>
+    <Description>NutHub drivers for USB HID Power Device UPSes (usbhid) and the Windows battery class (winbattery).</Description>
+    <!-- [LibraryImport] generates unsafe marshalling stubs for the Windows and Linux interop. -->
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\NutHub.Core\NutHub.Core.csproj" />
+    <PackageReference Include="HidSharp" />
+  </ItemGroup>
+  <ItemGroup>
+    <!-- The Linux hidraw layer, compiled into NutHub.Drivers.Serial as well (the megatec USB-serial bridges use it). -->
+    <Compile Include="..\Shared\Hidraw\*.cs" Link="Transport\Hidraw\%(Filename)%(Extension)" />
+  </ItemGroup>
+  <ItemGroup>
+    <InternalsVisibleTo Include="NutHub.Drivers.Hid.Tests" />
+  </ItemGroup>
+</Project>

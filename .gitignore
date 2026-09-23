@@ -1,0 +1,39 @@
+# Build output
+bin/
+obj/
+artifacts/
+publish/
+dist/
+[Dd]ebug/
+[Rr]elease/
+
+# IDEs
+.vs/
+.vscode/
+.idea/
+*.user
+*.suo
+*.rsuser
+
+# NuGet
+packages/
+*.nupkg
+*.snupkg
+
+# Tests
+TestResults/
+coverage/
+
+# Local runtime data (a development data directory, logs, databases)
+/data/
+*.log
+*.db
+*.db-shm
+*.db-wal
+__pycache__/
+*.pyc
+
+# OS clutter
+Thumbs.db
+Desktop.ini
+.DS_Store

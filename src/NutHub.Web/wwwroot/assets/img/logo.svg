@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
+  <!-- NutHub: the hexagonal nut of the NutDesk family, linked to the UPSes it serves. -->
+  <defs>
+    <linearGradient id="bg" x1="48" y1="32" x2="464" y2="480" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#2f5fc4"/>
+      <stop offset="0.55" stop-color="#1f7fd0"/>
+      <stop offset="1" stop-color="#14aec4"/>
+    </linearGradient>
+  </defs>
+  <rect x="16" y="16" width="480" height="480" rx="112" fill="url(#bg)"/>
+  <!-- One group opacity, so the spokes do not show through the nodes where they overlap. -->
+  <g opacity="0.9">
+    <path d="M376 256H424M316 152L340 110.4M196 152L172 110.4M136 256H88M196 360L172 401.6M316 360L340 401.6"
+          stroke="#ffffff" stroke-width="16" stroke-linecap="round"/>
+    <circle cx="436" cy="256" r="22" fill="#ffffff"/>
+    <circle cx="346" cy="100" r="22" fill="#ffffff"/>
+    <circle cx="166" cy="100" r="22" fill="#ffffff"/>
+    <circle cx="76" cy="256" r="22" fill="#ffffff"/>
+    <circle cx="166" cy="412" r="22" fill="#ffffff"/>
+    <circle cx="346" cy="412" r="22" fill="#ffffff"/>
+  </g>
+  <path d="M376 256L316 152H196L136 256L196 360H316Z" fill="#ffffff" stroke="#ffffff" stroke-width="18" stroke-linejoin="round"/>
+  <circle cx="256" cy="256" r="68" fill="url(#bg)"/>
+  <path d="M274 192L220 268H252L237 322L294 244H262Z" fill="#ffffff" stroke="#ffffff" stroke-width="6" stroke-linejoin="round"/>
+</svg>

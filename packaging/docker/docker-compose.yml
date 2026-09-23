@@ -1,0 +1,57 @@
+# NutHub with Docker Compose. From this folder:
+#   docker compose up -d --build
+#   docker compose logs nuthub                 (the first start prints where the admin password is)
+#   docker compose exec nuthub cat /var/lib/nuthub/initial-admin-password.txt
+# Then open http://<docker host>:8493/ and point NUT clients (upsmon, upsc...) at port 3493.
+#
+# Host protection (shutting down the machine on a power failure) cannot work from inside a container: install
+# NutHub on the host for that, or run upsmon on each machine to protect against this NutHub.
+
+services:
+  nuthub:
+    build:
+      context: ../..
+      dockerfile: packaging/docker/Dockerfile
+    image: nuthub:latest
+    container_name: nuthub
+    restart: unless-stopped
+    # Drivers close their devices within NutHub's 20 s shutdown timeout.
+    stop_grace_period: 30s
+    ports:
+      - "3493:3493"   # NUT protocol (on a NAS that runs its own UPS server on 3493, use "13493:3493")
+      - "8493:8493"   # web panel (HTTP)
+      # - "8494:8494" # web panel (HTTPS, once enabled in the settings)
+    volumes:
+      - nuthub-data:/var/lib/nuthub      # database, logs, keys, certificates
+      - nuthub-config:/etc/nuthub        # nuthub.json
+    environment:
+      TZ: "UTC"                          # the time zone of the log files and of the panel's server times
+      # Logging__LogLevel__Default: "Debug"
+
+    # --- USB UPS (HID power device) ---------------------------------------------------------------------------
+    # Pass the hidraw node of the UPS (find it with "ls -l /dev/hidraw*" or "nuthub devices" on the host) and let
+    # the container's user open it: its group id on the host ("stat -c %g /dev/hidraw0"), or a udev rule on the
+    # host such as packaging/linux/99-nuthub-ups.rules with GROUP set to a group whose id you add here.
+    # devices:
+    #   - /dev/hidraw0:/dev/hidraw0
+    # group_add:
+    #   - "1001"
+    #
+    # To follow the UPS across reconnections (the hidraw number can change, and NutHub resets a UPS that stops
+    # answering, after which it comes back with another number), pass /dev and allow the hidraw major number (see
+    # "grep hidraw /proc/devices" on the host) and the usb devices (major 189):
+    # volumes:
+    #   - /dev:/dev
+    # device_cgroup_rules:
+    #   - "c 243:* rmw"
+    #   - "c 189:* rmw"
+
+    # --- Serial UPS (megatec, apcsmart) -------------------------------------------------------------------------
+    # devices:
+    #   - /dev/ttyUSB0:/dev/ttyUSB0
+    # group_add:
+    #   - "dialout"      # or the numeric group of the device on the host ("stat -c %g /dev/ttyUSB0")
+
+volumes:
+  nuthub-data:
+  nuthub-config:

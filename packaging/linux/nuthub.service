@@ -1,0 +1,70 @@
+# systemd unit of NutHub, the UPS server compatible with Network UPS Tools.
+#
+# Installed by install.sh or "nuthub service install" (which put the actual executable path in ExecStart and the
+# data/configuration locations in Environment and ReadWritePaths). To change settings without editing this file:
+#   systemctl edit nuthub.service
+[Unit]
+Description=NutHub UPS server
+Documentation=https://github.com/kriseniprak/NutHub
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+# NutHub reports readiness through sd_notify once every part has started.
+Type=notify
+ExecStart=/opt/nuthub/nuthub run
+User=nuthub
+Group=nuthub
+# Serial UPSes (/dev/ttyS*, /dev/ttyUSB*, /dev/ttyACM*) belong to this group on most distributions; USB HID UPSes
+# get the "nuthub" group from 99-nuthub-ups.rules.
+SupplementaryGroups=dialout
+Environment=NUTHUB_DATA_DIR=/var/lib/nuthub
+Environment=NUTHUB_CONFIG=/etc/nuthub/nuthub.json
+# The single-file executable unpacks its native libraries here (the home directory is not writable).
+Environment=DOTNET_BUNDLE_EXTRACT_BASE_DIR=/var/cache/nuthub
+StateDirectory=nuthub
+StateDirectoryMode=0750
+ConfigurationDirectory=nuthub
+ConfigurationDirectoryMode=0750
+CacheDirectory=nuthub
+CacheDirectoryMode=0750
+# Logs go to the journal (standard output) and to rolling files in the data directory (/var/lib/nuthub/logs).
+UMask=0027
+Restart=on-failure
+RestartSec=5
+# Drivers close their devices cleanly within NutHub's own 20 s shutdown timeout.
+TimeoutStopSec=30
+
+# Hardening. Ports 3493 (NUT) and 8493/8494 (web panel) are unprivileged: no capability is needed.
+# Shutting this machine down on a power failure goes through logind and polkit (see 50-nuthub-poweroff.rules).
+NoNewPrivileges=yes
+AmbientCapabilities=
+CapabilityBoundingSet=
+ProtectSystem=strict
+ReadWritePaths=/var/lib/nuthub /etc/nuthub
+ProtectHome=yes
+PrivateTmp=yes
+ProtectKernelTunables=yes
+ProtectKernelModules=yes
+ProtectKernelLogs=yes
+ProtectControlGroups=yes
+ProtectClock=yes
+ProtectHostname=yes
+RestrictSUIDSGID=yes
+RestrictRealtime=yes
+RestrictNamespaces=yes
+LockPersonality=yes
+SystemCallArchitectures=native
+RestrictAddressFamilies=AF_UNIX AF_INET AF_INET6 AF_NETLINK
+# Only the device nodes UPS drivers use (plus /dev/null and friends). PrivateDevices= would hide them.
+DevicePolicy=closed
+DeviceAllow=char-hidraw rw
+DeviceAllow=char-ttyS rw
+DeviceAllow=char-ttyUSB rw
+DeviceAllow=char-ttyACM rw
+# The USB strings of HID UPSes (manufacturer, model, serial) that hidraw does not provide, and the reset of a
+# UPS that has stopped answering (USBDEVFS_RESET, which needs the node open for writing).
+DeviceAllow=char-usb_device rw
+
+[Install]
+WantedBy=multi-user.target

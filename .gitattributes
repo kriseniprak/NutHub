@@ -1,0 +1,31 @@
+# Normalise line endings in the repository; each checkout gets its platform's native endings.
+* text=auto
+
+*.sln      text
+*.slnx     text
+*.csproj   text
+*.props    text
+*.targets  text
+*.cs       text diff=csharp
+*.json     text
+*.md       text
+*.yml      text
+*.py       text
+*.html     text
+*.css      text
+*.js       text
+*.svg      text
+
+# Shell scripts and unit files must keep LF even on a Windows checkout, or they break on Linux.
+*.sh       text eol=lf
+*.service  text eol=lf
+*.rules    text eol=lf
+Dockerfile text eol=lf
+
+*.ico  binary
+*.png  binary
+*.jpg  binary
+*.zip  binary
+*.gz   binary
+*.exe  binary
+*.dll  binary

@@ -1,0 +1,169 @@
+# APC Back-UPS XS 1400U (USB 051d:0002): report descriptor and the values NUT 2.7.4 read from it (debug output).
+# Source: https://github.com/networkupstools/nut/issues/1189
+vendor 051d
+product 0002
+descriptor 05 84 09 04 a1 01 09 24 a1 00 85 01 09 fe 79 01 75 08 95 01 15 00 26 ff 00 b1 22 85 02 09 ff 79 02 b1 22 85 03 05 85 09 89 79 04 b1 22 85 04 09 8f 79 03 b1 22 85 05 09 8b b1 22 85 06 09 44 81 a2 09 44 b1 a2 09 45 81 a2 09 45 b1 a2 06 86 ff 09 60 81 a2 09 60 b1 a2 85 07 05 85 09 85 75 10 27 ff ff 00 00 b1 a2 85 08 05 84 09 40 67 21 d1 f0 00 55 05 b1 22 85 09 09 30 b1 a2 85 0a 09 fd 75 08 26 ff 00 65 00 55 00 79 03 b1 22 85 0b 05 85 09 2c b1 22 85 0c 09 66 25 64 81 a2 09 66 b1 a2 09 68 75 10 27 ff ff 00 00 66 01 10 81 a2 09 68 b1 a2 85 0d 09 83 75 08 25 64 65 00 b1 22 85 0e 09 67 b1 22 85 0f 09 8c b1 22 85 10 09 8e b1 22 85 11 09 29 15 01 b1 a2 85 12 09 8d 15 00 b1 22 85 13 09 d0 25 01 81 a2 09 d0 b1 a2 85 14 09 42 81 a2 09 42 b1 a2 05 84 09 69 81 a2 09 69 b1 a2 85 15 09 57 75 10 16 ff ff 26 ff 7f 66 01 10 b1 a2 09 02 a1 02 85 16 05 85 65 00 75 01 15 00 25 01 09 44 81 a2 09 44 b1 a2 09 45 81 a2 09 45 b1 a2 09 d0 81 a2 09 d0 b1 a2 09 d1 81 a2 09 d1 b1 a2 09 42 81 a2 09 42 b1 a2 05 84 09 69 81 a2 09 69 b1 a2 05 85 09 43 81 a2 09 43 b1 a2 05 84 09 73 81 a2 09 73 b1 a2 05 85 09 4b 81 a2 09 4b b1 a2 05 84 09 65 81 a2 09 65 b1 a2 05 85 09 db 81 a2 09 db b1 a2 95 15 81 01 b1 01 c0 85 17 09 2a 95 01 75 10 27 ff ff 00 00 66 01 10 b1 a2 85 18 05 84 09 5a 75 08 15 01 25 03 65 00 b1 a2 c0 09 12 a1 00 85 1c 06 86 ff 09 16 75 18 15 00 27 ff ff ff 00 b2 a2 01 85 20 05 85 09 85 75 10 27 ff ff 00 00 b1 a2 85 21 05 84 09 58 75 08 25 06 81 a2 09 58 b1 a2 85 22 05 85 09 66 75 08 25 64 b1 a2 85 23 09 68 75 10 27 ff ff 00 00 66 01 10 b1 a2 85 24 09 2a b1 a2 85 25 05 84 09 40 67 21 d1 f0 00 55 05 b1 22 85 26 09 30 b1 a2 85 27 06 86 ff 09 24 75 08 16 e5 00 26 fe 00 65 00 55 00 b1 a2 85 28 09 18 75 20 17 01 00 00 80 27 ff ff ff 7f b2 a2 01 c0 05 84 09 1a a1 00 85 30 05 84 09 40 75 08 15 4b 26 8c 00 67 21 d1 f0 00 55 07 b1 a2 85 31 09 30 75 10 b1 a2 85 32 09 53 16 96 00 26 a0 00 b1 a2 85 33 09 54 16 18 01 26 18 01 b1 a2 85 34 06 86 ff 09 24 75 08 15 73 26 8d 00 65 00 55 00 b1 a2 85 35 09 61 15 00 25 02 b1 a2 85 36 09 52 25 0d b1 a2 c0 09 05 a1 00 85 40 09 7c 25 01 b1 a2 85 41 09 7d 75 10 16 ff ff 26 ff 7f 66 01 10 b1 a2 85 42 05 84 09 57 b1 a2 c0 09 16 a1 00 85 50 09 35 75 08 15 00 25 64 65 00 b1 a2 85 51 06 86 ff 09 24 15 73 26 8d 00 b1 a2 75 10 15 00 27 ff ff 00 00 66 21 d1 55 07 85 52 05 84 09 44 b1 a2 c0 06 86 ff 09 01 a1 00 85 60 09 23 65 00 55 00 b1 a2 85 61 09 26 75 08 16 8c 00 26 94 00 b1 a2 85 62 09 25 75 20 17 01 00 00 80 27 ff ff ff 7f b2 a2 01 c0 85 7f 05 84 09 fe 79 05 75 08 95 01 15 00 26 ff 00 b1 22 85 7e 06 86 ff 09 42 79 06 b1 22 85 7d 05 84 09 ff 79 02 b1 22 85 7c 09 fd 79 03 b1 22 85 7b 05 85 09 85 75 10 27 ff ff 00 00 b1 a2 05 84 09 02 a1 02 85 7a 05 85 09 44 75 01 25 01 b1 a2 09 45 b1 a2 09 d0 b1 a2 09 d1 b1 a2 09 42 b1 a2 05 84 09 69 b1 a2 05 85 09 43 b1 a2 05 84 09 73 b1 a2 05 85 09 4b b1 a2 05 84 09 65 b1 a2 05 85 09 db b1 a2 95 15 b1 01 c0 85 79 06 86 ff 09 72 75 08 95 01 b1 a2 85 78 05 84 09 5a 15 01 25 03 b1 a2 85 75 06 86 ff 09 29 75 10 15 00 27 ff ff 00 00 b1 a2 85 74 06 86 ff 09 2a 75 20 17 01 00 00 80 27 ff ff ff 7f b1 a2 c0
+report 01 01
+report 02 02
+report 03 04
+report 04 03
+report 05 01
+report 06 00 00 08
+report 07 e2 46
+report 08 60 09
+report 09 95 0a
+report 0a 03
+report 0b 02
+report 0c 64 b8 05
+report 0d 64
+report 0e 64
+report 0f 32
+report 10 01
+report 11 0a
+report 12 01
+report 13 01
+report 14 00 00
+report 15 ff ff
+report 16 0c 00 00 00
+report 17 78 00
+report 18 02
+report 1c 01 25 09
+report 20 e2 46
+report 21 06
+report 22 64
+report 23 b8 05
+report 24 78 00
+report 25 60 09
+report 26 95 0a
+report 27 f1
+report 28 02 96 0d 5d
+report 30 e6
+report 31 e2 00
+report 32 9b 00
+report 33 18 01
+report 34 84
+report 35 01
+report 36 0b
+report 40 00
+report 41 ff ff
+report 42 ff ff
+report 50 10
+report 51 7c
+report 52 bc 02
+report 60 00 00
+report 61 9a
+report 62 00 01 02 03
+report 74 a9 1a 64 64
+report 75 62 00
+report 78 02
+report 79 00
+report 7a 0c 00 00 00
+report 7b e2 46
+report 7c 03
+report 7d 02
+report 7e 06
+report 7f 05
+value UPS.PowerSummary.iProduct|Feature|01|0|8|1|01 01
+value UPS.PowerSummary.iSerialNumber|Feature|02|0|8|2|02 02
+value UPS.PowerSummary.iDeviceChemistry|Feature|03|0|8|4|03 04
+value UPS.PowerSummary.iOEMInformation|Feature|04|0|8|3|04 03
+value UPS.PowerSummary.Rechargeable|Feature|05|0|8|1|05 01
+value UPS.PowerSummary.Charging|Input|06|0|8|0|06 00 00 08
+value UPS.PowerSummary.Charging|Feature|06|0|8|0|06 00 00 08
+value UPS.PowerSummary.Discharging|Input|06|8|8|0|06 00 00 08
+value UPS.PowerSummary.Discharging|Feature|06|8|8|0|06 00 00 08
+value UPS.PowerSummary.APCStatusFlag|Input|06|16|8|8|06 00 00 08
+value UPS.PowerSummary.APCStatusFlag|Feature|06|16|8|8|06 00 00 08
+value UPS.PowerSummary.ManufacturerDate|Feature|07|0|16|18146|07 e2 46
+value UPS.PowerSummary.ConfigVoltage|Feature|08|0|16|24|08 60 09
+value UPS.PowerSummary.Voltage|Feature|09|0|16|27.09|09 95 0a
+value UPS.PowerSummary.iManufacturer|Feature|0a|0|8|3|0a 03
+value UPS.PowerSummary.CapacityMode|Feature|0b|0|8|2|0b 02
+value UPS.PowerSummary.RemainingCapacity|Input|0c|0|8|100|0c 64 b8 05
+value UPS.PowerSummary.RemainingCapacity|Feature|0c|0|8|100|0c 64 b8 05
+value UPS.PowerSummary.RunTimeToEmpty|Input|0c|8|16|1464|0c 64 b8 05
+value UPS.PowerSummary.RunTimeToEmpty|Feature|0c|8|16|1464|0c 64 b8 05
+value UPS.PowerSummary.DesignCapacity|Feature|0d|0|8|100|0d 64
+value UPS.PowerSummary.FullChargeCapacity|Feature|0e|0|8|100|0e 64
+value UPS.PowerSummary.WarningCapacityLimit|Feature|0f|0|8|50|0f 32
+value UPS.PowerSummary.CapacityGranularity2|Feature|10|0|8|1|10 01
+value UPS.PowerSummary.RemainingCapacityLimit|Feature|11|0|8|10|11 0a
+value UPS.PowerSummary.CapacityGranularity1|Feature|12|0|8|1|12 01
+value UPS.PowerSummary.ACPresent|Input|13|0|8|1|13 01
+value UPS.PowerSummary.ACPresent|Feature|13|0|8|1|13 01
+value UPS.PowerSummary.BelowRemainingCapacityLimit|Input|14|0|8|0|14 00 00
+value UPS.PowerSummary.BelowRemainingCapacityLimit|Feature|14|0|8|0|14 00 00
+value UPS.PowerSummary.ShutdownImminent|Input|14|8|8|0|14 00 00
+value UPS.PowerSummary.ShutdownImminent|Feature|14|8|8|0|14 00 00
+value UPS.PowerSummary.DelayBeforeShutdown|Feature|15|0|16|-1|15 ff ff
+value UPS.PowerSummary.PresentStatus.Charging|Input|16|0|1|0|16 0c 00 00 00
+value UPS.PowerSummary.PresentStatus.Charging|Feature|16|0|1|0|16 0c 00 00 00
+value UPS.PowerSummary.PresentStatus.Discharging|Input|16|1|1|0|16 0c 00 00 00
+value UPS.PowerSummary.PresentStatus.Discharging|Feature|16|1|1|0|16 0c 00 00 00
+value UPS.PowerSummary.PresentStatus.ACPresent|Input|16|2|1|1|16 0c 00 00 00
+value UPS.PowerSummary.PresentStatus.ACPresent|Feature|16|2|1|1|16 0c 00 00 00
+value UPS.PowerSummary.PresentStatus.BatteryPresent|Input|16|3|1|1|16 0c 00 00 00
+value UPS.PowerSummary.PresentStatus.BatteryPresent|Feature|16|3|1|1|16 0c 00 00 00
+value UPS.PowerSummary.PresentStatus.BelowRemainingCapacityLimit|Input|16|4|1|0|16 0c 00 00 00
+value UPS.PowerSummary.PresentStatus.BelowRemainingCapacityLimit|Feature|16|4|1|0|16 0c 00 00 00
+value UPS.PowerSummary.PresentStatus.ShutdownImminent|Input|16|5|1|0|16 0c 00 00 00
+value UPS.PowerSummary.PresentStatus.ShutdownImminent|Feature|16|5|1|0|16 0c 00 00 00
+value UPS.PowerSummary.PresentStatus.RemainingTimeLimitExpired|Input|16|6|1|0|16 0c 00 00 00
+value UPS.PowerSummary.PresentStatus.RemainingTimeLimitExpired|Feature|16|6|1|0|16 0c 00 00 00
+value UPS.PowerSummary.PresentStatus.CommunicationLost|Input|16|7|1|0|16 0c 00 00 00
+value UPS.PowerSummary.PresentStatus.CommunicationLost|Feature|16|7|1|0|16 0c 00 00 00
+value UPS.PowerSummary.PresentStatus.NeedReplacement|Input|16|8|1|0|16 0c 00 00 00
+value UPS.PowerSummary.PresentStatus.NeedReplacement|Feature|16|8|1|0|16 0c 00 00 00
+value UPS.PowerSummary.PresentStatus.Overload|Input|16|9|1|0|16 0c 00 00 00
+value UPS.PowerSummary.PresentStatus.Overload|Feature|16|9|1|0|16 0c 00 00 00
+value UPS.PowerSummary.PresentStatus.VoltageNotRegulated|Input|16|10|1|0|16 0c 00 00 00
+value UPS.PowerSummary.PresentStatus.VoltageNotRegulated|Feature|16|10|1|0|16 0c 00 00 00
+value UPS.PowerSummary.RemainingTimeLimit|Feature|17|0|16|120|17 78 00
+value UPS.PowerSummary.AudibleAlarmControl|Feature|18|0|8|2|18 02
+value UPS.Battery.APCBattReplaceDate|Feature|1c|0|24|599297|1c 01 25 09
+value UPS.Battery.ManufacturerDate|Feature|20|0|16|18146|20 e2 46
+value UPS.Battery.Test|Input|21|0|8|6|21 06
+value UPS.Battery.Test|Feature|21|0|8|6|21 06
+value UPS.Battery.RemainingCapacity|Feature|22|0|8|100|22 64
+value UPS.Battery.RunTimeToEmpty|Feature|23|0|16|1464|23 b8 05
+value UPS.Battery.RemainingTimeLimit|Feature|24|0|16|120|24 78 00
+value UPS.Battery.ConfigVoltage|Feature|25|0|16|24|25 60 09
+value UPS.Battery.Voltage|Feature|26|0|16|27.09|26 95 0a
+value UPS.Battery.ff860024|Feature|27|0|8|241|27 f1
+value UPS.Battery.ff860018|Feature|28|0|32|1.56117e+09|28 02 96 0d 5d
+value UPS.Input.ConfigVoltage|Feature|30|0|8|102|30 e6
+value UPS.Input.Voltage|Feature|31|0|16|98|31 e2 00
+value UPS.Input.LowVoltageTransfer|Feature|32|0|16|155|32 9b 00
+value UPS.Input.HighVoltageTransfer|Feature|33|0|16|280|33 18 01
+value UPS.Input.ff860024|Feature|34|0|8|132|34 84
+value UPS.Input.APCSensitivity|Feature|35|0|8|1|35 01
+value UPS.Input.APCLineFailCause|Feature|36|0|8|11|36 0b
+value UPS.APCGeneralCollection.APCDelayBeforeReboot|Feature|40|0|8|0|40 00
+value UPS.APCGeneralCollection.APCDelayBeforeShutdown|Feature|41|0|16|-1|41 ff ff
+value UPS.APCGeneralCollection.DelayBeforeShutdown|Feature|42|0|16|-1|42 ff ff
+value UPS.PowerConverter.PercentLoad|Feature|50|0|8|16|50 10
+value UPS.PowerConverter.ff860024|Feature|51|0|8|124|51 7c
+value UPS.PowerConverter.ConfigActivePower|Feature|52|0|16|700|52 bc 02
+value UPS.ff860001.ff860023|Feature|60|0|16|0|60 00 00
+value UPS.ff860001.ff860026|Feature|61|0|8|148|61 9a
+value UPS.ff860001.ff860025|Feature|62|0|32|5.0463e+07|62 00 01 02 03
+value UPS.iProduct|Feature|7f|0|8|5|7f 05
+value UPS.APC_UPS_FirmwareRevision|Feature|7e|0|8|6|7e 06
+value UPS.iSerialNumber|Feature|7d|0|8|2|7d 02
+value UPS.iManufacturer|Feature|7c|0|8|3|7c 03
+value UPS.ManufacturerDate|Feature|7b|0|16|18146|7b e2 46
+value UPS.PresentStatus.Charging|Feature|7a|0|1|0|7a 0c 00 00 00
+value UPS.PresentStatus.Discharging|Feature|7a|1|1|0|7a 0c 00 00 00
+value UPS.PresentStatus.ACPresent|Feature|7a|2|1|1|7a 0c 00 00 00
+value UPS.PresentStatus.BatteryPresent|Feature|7a|3|1|1|7a 0c 00 00 00
+value UPS.PresentStatus.BelowRemainingCapacityLimit|Feature|7a|4|1|0|7a 0c 00 00 00
+value UPS.PresentStatus.ShutdownImminent|Feature|7a|5|1|0|7a 0c 00 00 00
+value UPS.PresentStatus.RemainingTimeLimitExpired|Feature|7a|6|1|0|7a 0c 00 00 00
+value UPS.PresentStatus.CommunicationLost|Feature|7a|7|1|0|7a 0c 00 00 00
+value UPS.PresentStatus.NeedReplacement|Feature|7a|8|1|0|7a 0c 00 00 00
+value UPS.PresentStatus.Overload|Feature|7a|9|1|0|7a 0c 00 00 00
+value UPS.PresentStatus.VoltageNotRegulated|Feature|7a|10|1|0|7a 0c 00 00 00
+value UPS.APCPanelTest|Feature|79|0|8|0|79 00
+value UPS.AudibleAlarmControl|Feature|78|0|8|2|78 02
+value UPS.ff860029|Feature|75|0|16|98|75 62 00
+value UPS.ff86002a|Feature|74|0|32|1.68428e+09|74 a9 1a 64 64

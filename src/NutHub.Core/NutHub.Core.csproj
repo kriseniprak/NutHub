@@ -1,0 +1,16 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <RootNamespace>NutHub.Core</RootNamespace>
+    <Description>NutHub core: UPS model, driver runtime, configuration and security primitives.</Description>
+  </PropertyGroup>
+  <ItemGroup>
+    <!-- One shared framework for the whole application: hosting, logging, DI and Kestrel all come from here. -->
+    <FrameworkReference Include="Microsoft.AspNetCore.App" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Catalog\cmdvartab" LogicalName="NutHub.Core.Catalog.cmdvartab" />
+  </ItemGroup>
+  <ItemGroup>
+    <InternalsVisibleTo Include="NutHub.Core.Tests" />
+  </ItemGroup>
+</Project>

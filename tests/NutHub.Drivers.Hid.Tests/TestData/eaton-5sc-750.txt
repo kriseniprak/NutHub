@@ -1,0 +1,205 @@
+# Eaton 5SC 750 (USB 0463:ffff): report descriptor and the values NUT 2.7.4 read from it (debug output).
+# Source: https://github.com/networkupstools/nut/issues/2380#issuecomment-2108986084
+vendor 0463
+product ffff
+descriptor 05 84 09 04 a1 01 09 10 a1 00 09 12 a1 00 09 5a 85 28 75 08 95 01 15 00 26 ff 00 65 00 55 00 b1 82 09 13 85 20 b1 03 06 ff ff 09 49 85 22 b1 82 05 85 09 83 85 23 75 20 27 ff ff ff 7f 67 01 10 10 00 b1 83 05 84 09 02 a1 02 09 60 85 27 75 08 26 ff 00 65 00 b1 83 09 60 81 83 c0 09 58 85 24 b1 82 06 ff ff 09 45 85 25 75 20 27 ff ff ff 7f 66 01 10 b1 82 c0 05 84 09 11 85 20 75 08 26 ff 00 65 00 b1 03 09 14 a1 00 06 ff ff 09 87 85 29 b1 82 05 84 09 15 85 20 b1 03 06 ff ff 09 6b 85 26 b1 83 09 94 b1 83 05 84 09 02 a1 02 06 ff ff 09 79 85 27 b1 83 09 79 81 83 05 84 09 62 b1 83 09 62 81 83 09 6d b1 83 09 6d 81 83 06 ff ff 09 74 b1 83 09 74 81 83 09 75 b1 83 09 75 81 83 c0 c0 c0 09 e0 85 fe 95 0a b1 82 09 e0 85 ff 95 3f b1 82 05 84 09 1e a1 81 09 42 85 14 95 01 66 01 f0 b1 83 09 40 85 15 75 10 27 ff ff 00 00 67 21 d1 f0 00 55 07 b1 83 09 1f 85 0b 75 08 26 ff 00 65 00 55 00 b1 03 c0 09 1e a1 84 09 44 85 74 75 10 27 ff ff 00 00 66 21 d1 55 07 b1 83 09 43 85 75 b1 83 09 42 85 0d 75 08 26 ff 00 66 01 f0 55 00 b1 83 09 45 85 16 65 00 b1 82 09 40 85 72 75 10 27 ff ff 00 00 67 21 d1 f0 00 55 07 b1 82 09 1f 85 0b 75 08 26 ff 00 65 00 55 00 b1 03 c0 06 ff ff 09 1c a1 00 09 1e a1 81 09 98 85 71 75 10 27 ff ff 00 00 b1 83 c0 09 1e a1 82 09 98 b1 83 c0 09 1e a1 83 09 98 b1 83 c0 09 1e a1 84 09 98 b1 83 c0 09 1e a1 85 09 98 b1 83 c0 09 1e a1 86 09 98 b1 83 c0 09 1e a1 87 09 98 b1 83 c0 09 1e a1 88 09 98 b1 83 c0 09 1e a1 89 09 98 b1 83 c0 09 1e a1 8a 09 98 b1 83 c0 09 1e a1 8b 09 98 b1 83 c0 09 1e a1 8c 09 98 b1 83 c0 09 1e a1 8d 09 98 b1 83 c0 09 1e a1 8e 09 98 b1 83 c0 09 1e a1 8f 09 98 b1 83 c0 c0 05 84 09 18 a1 00 09 20 a1 81 09 1f 85 80 75 08 26 ff 00 b1 03 09 21 b1 03 09 02 a1 02 09 6c 85 81 b1 03 c0 c0 09 19 85 80 b1 03 c0 09 16 a1 00 06 ff ff 09 41 85 4a b1 03 05 84 09 1a a1 81 06 ff ff 09 43 85 73 b1 82 05 84 09 31 85 31 75 10 27 ff ff 00 00 67 01 00 10 00 55 0f b1 83 09 1f 85 30 75 08 26 ff 00 65 00 55 00 b1 03 09 32 85 31 75 10 27 ff ff 00 00 66 01 f0 55 0f b1 83 09 1b 85 30 75 08 26 ff 00 65 00 55 00 b1 03 09 02 a1 02 09 6e 85 32 b1 83 09 6e 81 83 09 6f b1 83 09 6f 81 83 09 64 b1 83 09 64 81 83 09 62 b1 83 09 62 81 83 09 6d b1 83 09 6d 81 83 09 63 b1 83 09 63 81 83 c0 09 30 85 31 75 10 27 ff ff 00 00 67 21 d1 f0 00 55 06 b1 83 c0 09 1a a1 83 09 45 85 3c 75 08 26 ff 00 65 00 55 00 b1 82 06 ff ff 09 72 85 3e b1 82 09 46 85 39 b1 82 05 84 09 1f 85 30 b1 03 09 1b b1 03 09 02 a1 02 09 6d 85 3b b1 83 09 6d 81 83 c0 06 ff ff 09 5d 85 3d 75 10 27 ff ff 00 00 66 01 10 b1 82 09 47 85 3a 75 08 26 ff 00 65 00 b1 82 c0 09 14 a1 00 05 84 09 02 a1 02 09 6d 85 41 b1 83 09 6d 81 83 c0 c0 09 1c a1 00 09 34 85 42 75 10 27 ff ff 00 00 66 21 d1 55 07 b1 83 09 33 b1 83 09 31 67 01 00 10 00 55 0f b1 83 06 ff ff 09 86 75 08 26 ff 00 65 00 55 00 b1 83 05 84 09 1f 85 40 b1 03 06 ff ff 09 44 85 43 b1 82 05 84 09 32 85 42 75 10 27 ff ff 00 00 66 01 f0 55 0f b1 83 06 ff ff 09 53 85 4d 67 21 d1 f0 00 55 07 b1 83 05 84 09 54 85 48 b1 83 06 ff ff 09 50 85 4e b1 83 05 84 09 53 85 47 b1 83 09 1d 85 40 75 08 26 ff 00 65 00 55 00 b1 03 06 ff ff 09 69 85 42 b1 83 05 84 09 02 a1 02 06 ff ff 09 4a 85 49 b1 83 09 4a 81 83 c0 09 4c 85 4f b1 82 05 84 09 30 85 42 75 10 27 ff ff 00 00 67 21 d1 f0 00 55 06 b1 83 c0 09 17 85 40 75 08 26 ff 00 65 00 55 00 b1 03 c0 09 24 a1 00 09 5a 85 13 b1 82 05 85 09 8d 85 0c b1 03 09 2c b1 03 05 84 09 40 85 0d 75 10 27 ff ff 00 00 67 21 d1 f0 00 55 07 b1 03 06 ff ff 09 95 85 0b 75 08 26 ff 00 65 00 55 00 b1 03 05 84 09 57 85 09 75 20 15 ff 27 ff ff ff 7f 66 01 10 b1 82 09 56 85 0a b1 82 05 85 09 83 85 0c 75 08 15 00 26 ff 00 65 00 b1 03 05 84 09 1f 85 0b b1 03 05 85 09 67 85 0c b1 03 09 89 85 10 b1 03 05 84 09 fd b1 03 06 ff ff 09 f0 b1 03 09 f3 b1 03 05 84 09 fe b1 03 09 ff b1 03 06 ff ff 09 f1 b1 03 05 84 09 35 85 07 b1 83 09 25 85 0b b1 03 09 02 a1 02 05 85 09 d0 85 01 b1 83 09 d0 81 83 09 42 b1 83 09 42 81 83 09 44 b1 83 09 44 81 83 05 84 09 73 85 0f b1 83 09 73 81 83 06 ff ff 09 2d 85 03 b1 83 09 2d 81 83 05 85 09 45 85 01 b1 83 09 45 81 83 06 ff ff 09 68 85 03 b1 83 09 68 81 83 09 77 b1 83 09 77 81 83 05 84 09 61 85 01 b1 83 09 61 81 83 09 62 85 02 b1 83 09 62 81 83 05 85 09 4b b1 83 09 4b 81 83 05 84 09 65 b1 83 09 65 81 83 09 67 85 03 b1 83 09 67 81 83 09 69 85 02 b1 83 09 69 81 83 09 6c 85 05 b1 82 09 6c 81 82 c0 05 85 09 66 85 06 b1 83 09 66 81 83 09 29 85 08 b1 83 06 ff ff 09 4d 85 12 b1 82 09 5f 85 0e b1 82 05 85 09 68 85 06 75 20 27 ff ff ff 7f 66 01 10 b1 83 09 68 81 83 06 ff ff 09 48 85 11 75 08 26 ff 00 65 00 b1 82 09 91 85 18 75 20 27 ff ff ff 7f 66 01 10 b1 83 05 84 09 30 85 07 75 10 27 ff ff 00 00 67 21 d1 f0 00 55 06 b1 83 c0 c0
+report 01 01 00 01 00 01
+report 02 00 00 00 00
+report 03 00 00 00 00
+report 05 01
+report 06 64 ec 06 00 00
+report 07 1d 02 01
+report 08 14
+report 09 ff ff ff ff
+report 0a ff ff ff ff
+report 0b 01 04 00 04 01
+report 0c 01 02 64 64
+report 0d 32 18 00
+report 0e 00
+report 0f 00
+report 10 04 01 07 0f 02 03 05
+report 11 00
+report 12 14
+report 13 02
+report 14 32
+report 15 e6 00
+report 16 69
+report 18 0c 3a c4 04
+report 20 01 01 01
+report 22 01
+report 23 70 62 00 00
+report 24 01
+report 25 80 3a 09 00
+report 26 04 04
+report 27 01 01 00 01 00 00
+report 28 02
+report 29 01
+report 30 01 01 03 03
+report 31 00 00 f3 01 f2 08
+report 32 00 00 00 00 01 00
+report 39 00
+report 3a 01
+report 3b 00
+report 3c 14
+report 3d 2c 01
+report 3e 00
+report 40 04 01 01
+report 41 00
+report 42 6e 00 89 00 06 00 48 f3 01 50 ec 08
+report 43 01
+report 47 b0 00
+report 48 08 01
+report 49 00
+report 4a 01
+report 4d e9 00
+report 4e c6 00
+report 4f 01
+report 72 dc 00
+report 73 01
+report 74 0d 02
+report 75 ee 02
+report 80 04 00 01
+report 81 00
+value UPS.BatterySystem.Battery.AudibleAlarmControl|Feature|28|0|8|2|28 02
+value UPS.BatterySystem.Battery.BatteryID|Feature|20|0|8|1|20 01 01 01
+value UPS.BatterySystem.Battery.DeepDischargeProtection|Feature|22|0|8|1|22 01
+value UPS.BatterySystem.Battery.DesignCapacity|Feature|23|0|32|25200|23 70 62 00 00
+value UPS.BatterySystem.Battery.PresentStatus.Present|Feature|27|0|8|1|27 01 01 00 01 00 00
+value UPS.BatterySystem.Battery.PresentStatus.Present|Input|27|0|8|1|27 01 01 00 01 00 00
+value UPS.BatterySystem.Battery.Test|Feature|24|0|8|1|24 01
+value UPS.BatterySystem.Battery.TestPeriod|Feature|25|0|32|604800|25 80 3a 09 00
+value UPS.BatterySystem.BatterySystemID|Feature|20|8|8|1|20 01 01 01
+value UPS.BatterySystem.Charger.ABMEnable|Feature|29|0|8|1|29 01
+value UPS.BatterySystem.Charger.ChargerID|Feature|20|16|8|1|20 01 01 01
+value UPS.BatterySystem.Charger.ChargerType|Feature|26|0|8|4|26 04 04
+value UPS.BatterySystem.Charger.Mode|Feature|26|8|8|4|26 04 04
+value UPS.BatterySystem.Charger.PresentStatus.Floating|Feature|27|8|8|1|27 01 01 00 01 00 00
+value UPS.BatterySystem.Charger.PresentStatus.Floating|Input|27|8|8|1|27 01 01 00 01 00 00
+value UPS.BatterySystem.Charger.PresentStatus.InternalFailure|Feature|27|16|8|0|27 01 01 00 01 00 00
+value UPS.BatterySystem.Charger.PresentStatus.InternalFailure|Input|27|16|8|0|27 01 01 00 01 00 00
+value UPS.BatterySystem.Charger.PresentStatus.Used|Feature|27|24|8|1|27 01 01 00 01 00 00
+value UPS.BatterySystem.Charger.PresentStatus.Used|Input|27|24|8|1|27 01 01 00 01 00 00
+value UPS.BatterySystem.Charger.PresentStatus.VoltageTooHigh|Feature|27|32|8|0|27 01 01 00 01 00 00
+value UPS.BatterySystem.Charger.PresentStatus.VoltageTooHigh|Input|27|32|8|0|27 01 01 00 01 00 00
+value UPS.BatterySystem.Charger.PresentStatus.VoltageTooLow|Feature|27|40|8|0|27 01 01 00 01 00 00
+value UPS.BatterySystem.Charger.PresentStatus.VoltageTooLow|Input|27|40|8|0|27 01 01 00 01 00 00
+value UPS.Flow.[1].ConfigFrequency|Feature|14|0|8|50|14 32
+value UPS.Flow.[1].ConfigVoltage|Feature|15|0|16|230|15 e6 00
+value UPS.Flow.[1].FlowID|Feature|0b|0|8|1|0b 01 04 00 04 01
+value UPS.Flow.[4].ConfigActivePower|Feature|74|0|16|525|74 0d 02
+value UPS.Flow.[4].ConfigApparentPower|Feature|75|0|16|750|75 ee 02
+value UPS.Flow.[4].ConfigFrequency|Feature|0d|0|8|50|0d 32 18 00
+value UPS.Flow.[4].ConfigPercentLoad|Feature|16|0|8|105|16 69
+value UPS.Flow.[4].ConfigVoltage|Feature|72|0|16|220|72 dc 00
+value UPS.Flow.[4].FlowID|Feature|0b|8|8|4|0b 01 04 00 04 01
+value UPS.OutletSystem.Outlet.[1].FlowID|Feature|80|0|8|4|80 04 00 01
+value UPS.OutletSystem.Outlet.[1].OutletID|Feature|80|8|8|0|80 04 00 01
+value UPS.OutletSystem.Outlet.[1].PresentStatus.Switchable|Feature|81|0|8|0|81 00
+value UPS.OutletSystem.OutletSystemID|Feature|80|16|8|1|80 04 00 01
+value UPS.PowerConverter.ConverterType|Feature|4a|0|8|1|4a 01
+value UPS.PowerConverter.Input.[1].AutomaticRestart|Feature|73|0|8|1|73 01
+value UPS.PowerConverter.Input.[1].Current|Feature|31|0|16|0|31 00 00 f3 01 f2 08
+value UPS.PowerConverter.Input.[1].FlowID|Feature|30|0|8|1|30 01 01 03 03
+value UPS.PowerConverter.Input.[1].Frequency|Feature|31|16|16|49.9|31 00 00 f3 01 f2 08
+value UPS.PowerConverter.Input.[1].InputID|Feature|30|8|8|1|30 01 01 03 03
+value UPS.PowerConverter.Input.[1].PresentStatus.Boost|Feature|32|0|8|0|32 00 00 00 00 01 00
+value UPS.PowerConverter.Input.[1].PresentStatus.Boost|Input|32|0|8|0|32 00 00 00 00 01 00
+value UPS.PowerConverter.Input.[1].PresentStatus.Buck|Feature|32|8|8|0|32 00 00 00 00 01 00
+value UPS.PowerConverter.Input.[1].PresentStatus.Buck|Input|32|8|8|0|32 00 00 00 00 01 00
+value UPS.PowerConverter.Input.[1].PresentStatus.FrequencyOutOfRange|Feature|32|16|8|0|32 00 00 00 00 01 00
+value UPS.PowerConverter.Input.[1].PresentStatus.FrequencyOutOfRange|Input|32|16|8|0|32 00 00 00 00 01 00
+value UPS.PowerConverter.Input.[1].PresentStatus.InternalFailure|Feature|32|24|8|0|32 00 00 00 00 01 00
+value UPS.PowerConverter.Input.[1].PresentStatus.InternalFailure|Input|32|24|8|0|32 00 00 00 00 01 00
+value UPS.PowerConverter.Input.[1].PresentStatus.Used|Feature|32|32|8|1|32 00 00 00 00 01 00
+value UPS.PowerConverter.Input.[1].PresentStatus.Used|Input|32|32|8|1|32 00 00 00 00 01 00
+value UPS.PowerConverter.Input.[1].PresentStatus.VoltageOutOfRange|Feature|32|40|8|0|32 00 00 00 00 01 00
+value UPS.PowerConverter.Input.[1].PresentStatus.VoltageOutOfRange|Input|32|40|8|0|32 00 00 00 00 01 00
+value UPS.PowerConverter.Input.[1].Voltage|Feature|31|32|16|229|31 00 00 f3 01 f2 08
+value UPS.PowerConverter.Input.[3].ConfigPercentLoad|Feature|3c|0|8|20|3c 14
+value UPS.PowerConverter.Input.[3].ControlStandby|Feature|3e|0|8|0|3e 00
+value UPS.PowerConverter.Input.[3].EnergySaving|Feature|39|0|8|0|39 00
+value UPS.PowerConverter.Input.[3].FlowID|Feature|30|16|8|3|30 01 01 03 03
+value UPS.PowerConverter.Input.[3].InputID|Feature|30|24|8|3|30 01 01 03 03
+value UPS.PowerConverter.Input.[3].PresentStatus.Used|Feature|3b|0|8|0|3b 00
+value UPS.PowerConverter.Input.[3].PresentStatus.Used|Input|3b|0|8|0|3b 00
+value UPS.PowerConverter.Input.[3].ShutdownTimer|Feature|3d|0|16|300|3d 2c 01
+value UPS.PowerConverter.Input.[3].StartOnBattery|Feature|3a|0|8|1|3a 01
+value UPS.PowerConverter.Inverter.PresentStatus.Used|Feature|41|0|8|0|41 00
+value UPS.PowerConverter.Inverter.PresentStatus.Used|Input|41|0|8|0|41 00
+value UPS.PowerConverter.Output.ActivePower|Feature|42|0|16|110|42 6e 00 89 00 06 00 48 f3 01 50 ec 08
+value UPS.PowerConverter.Output.ApparentPower|Feature|42|16|16|137|42 6e 00 89 00 06 00 48 f3 01 50 ec 08
+value UPS.PowerConverter.Output.Current|Feature|42|32|16|0.6|42 6e 00 89 00 06 00 48 f3 01 50 ec 08
+value UPS.PowerConverter.Output.Efficiency|Feature|42|48|8|72|42 6e 00 89 00 06 00 48 f3 01 50 ec 08
+value UPS.PowerConverter.Output.FlowID|Feature|40|0|8|4|40 04 01 01
+value UPS.PowerConverter.Output.ForcedReboot|Feature|43|0|8|1|43 01
+value UPS.PowerConverter.Output.Frequency|Feature|42|56|16|49.9|42 6e 00 89 00 06 00 48 f3 01 50 ec 08
+value UPS.PowerConverter.Output.HighVoltageBuckTransfer|Feature|4d|0|16|233|4d e9 00
+value UPS.PowerConverter.Output.HighVoltageTransfer|Feature|48|0|16|264|48 08 01
+value UPS.PowerConverter.Output.LowVoltageBoostTransfer|Feature|4e|0|16|198|4e c6 00
+value UPS.PowerConverter.Output.LowVoltageTransfer|Feature|47|0|16|176|47 b0 00
+value UPS.PowerConverter.Output.OutputID|Feature|40|8|8|1|40 04 01 01
+value UPS.PowerConverter.Output.PowerFactor|Feature|42|72|8|80|42 6e 00 89 00 06 00 48 f3 01 50 ec 08
+value UPS.PowerConverter.Output.PresentStatus.ShortCircuit|Feature|49|0|8|0|49 00
+value UPS.PowerConverter.Output.PresentStatus.ShortCircuit|Input|49|0|8|0|49 00
+value UPS.PowerConverter.Output.SensitivityMode|Feature|4f|0|8|1|4f 01
+value UPS.PowerConverter.Output.Voltage|Feature|42|80|16|228.4|42 6e 00 89 00 06 00 48 f3 01 50 ec 08
+value UPS.PowerConverter.PowerConverterID|Feature|40|16|8|1|40 04 01 01
+value UPS.PowerSummary.AudibleAlarmControl|Feature|13|0|8|2|13 02
+value UPS.PowerSummary.CapacityGranularity1|Feature|0c|0|8|1|0c 01 02 64 64
+value UPS.PowerSummary.CapacityMode|Feature|0c|8|8|2|0c 01 02 64 64
+value UPS.PowerSummary.ConfigVoltage|Feature|0d|8|16|24|0d 32 18 00
+value UPS.PowerSummary.Country|Feature|0b|16|8|0|0b 01 04 00 04 01
+value UPS.PowerSummary.DelayBeforeShutdown|Feature|09|0|32|0|09 ff ff ff ff
+value UPS.PowerSummary.DelayBeforeStartup|Feature|0a|0|32|0|0a ff ff ff ff
+value UPS.PowerSummary.DesignCapacity|Feature|0c|16|8|100|0c 01 02 64 64
+value UPS.PowerSummary.FlowID|Feature|0b|24|8|4|0b 01 04 00 04 01
+value UPS.PowerSummary.FullChargeCapacity|Feature|0c|24|8|100|0c 01 02 64 64
+value UPS.PowerSummary.iDeviceChemistry|Feature|10|0|8|4|10 04 01 07 0f 02 03 05
+value UPS.PowerSummary.iManufacturer|Feature|10|8|8|1|10 04 01 07 0f 02 03 05
+value UPS.PowerSummary.iModel|Feature|10|16|8|7|10 04 01 07 0f 02 03 05
+value UPS.PowerSummary.iPartNumber|Feature|10|24|8|15|10 04 01 07 0f 02 03 05
+value UPS.PowerSummary.iProduct|Feature|10|32|8|2|10 04 01 07 0f 02 03 05
+value UPS.PowerSummary.iSerialNumber|Feature|10|40|8|3|10 04 01 07 0f 02 03 05
+value UPS.PowerSummary.iVersion|Feature|10|48|8|5|10 04 01 07 0f 02 03 05
+value UPS.PowerSummary.PercentLoad|Feature|07|0|8|29|07 1d 02 01
+value UPS.PowerSummary.PowerSummaryID|Feature|0b|32|8|1|0b 01 04 00 04 01
+value UPS.PowerSummary.PresentStatus.ACPresent|Feature|01|0|8|1|01 01 00 01 00 01
+value UPS.PowerSummary.PresentStatus.ACPresent|Input|01|0|8|1|01 01 00 01 00 01
+value UPS.PowerSummary.PresentStatus.BelowRemainingCapacityLimit|Feature|01|8|8|0|01 01 00 01 00 01
+value UPS.PowerSummary.PresentStatus.BelowRemainingCapacityLimit|Input|01|8|8|0|01 01 00 01 00 01
+value UPS.PowerSummary.PresentStatus.Charging|Feature|01|16|8|1|01 01 00 01 00 01
+value UPS.PowerSummary.PresentStatus.Charging|Input|01|16|8|1|01 01 00 01 00 01
+value UPS.PowerSummary.PresentStatus.CommunicationLost|Feature|0f|0|8|0|0f 00
+value UPS.PowerSummary.PresentStatus.CommunicationLost|Input|0f|0|8|0|0f 00
+value UPS.PowerSummary.PresentStatus.ConfigurationFailure|Feature|03|0|8|0|03 00 00 00 00
+value UPS.PowerSummary.PresentStatus.ConfigurationFailure|Input|03|0|8|0|03 00 00 00 00
+value UPS.PowerSummary.PresentStatus.Discharging|Feature|01|24|8|0|01 01 00 01 00 01
+value UPS.PowerSummary.PresentStatus.Discharging|Input|01|24|8|0|01 01 00 01 00 01
+value UPS.PowerSummary.PresentStatus.EmergencyStop|Feature|03|8|8|0|03 00 00 00 00
+value UPS.PowerSummary.PresentStatus.EmergencyStop|Input|03|8|8|0|03 00 00 00 00
+value UPS.PowerSummary.PresentStatus.FanFailure|Feature|03|16|8|0|03 00 00 00 00
+value UPS.PowerSummary.PresentStatus.FanFailure|Input|03|16|8|0|03 00 00 00 00
+value UPS.PowerSummary.PresentStatus.Good|Feature|01|32|8|1|01 01 00 01 00 01
+value UPS.PowerSummary.PresentStatus.Good|Input|01|32|8|1|01 01 00 01 00 01
+value UPS.PowerSummary.PresentStatus.InternalFailure|Feature|02|0|8|0|02 00 00 00 00
+value UPS.PowerSummary.PresentStatus.InternalFailure|Input|02|0|8|0|02 00 00 00 00
+value UPS.PowerSummary.PresentStatus.NeedReplacement|Feature|02|8|8|0|02 00 00 00 00
+value UPS.PowerSummary.PresentStatus.NeedReplacement|Input|02|8|8|0|02 00 00 00 00
+value UPS.PowerSummary.PresentStatus.Overload|Feature|02|16|8|0|02 00 00 00 00
+value UPS.PowerSummary.PresentStatus.Overload|Input|02|16|8|0|02 00 00 00 00
+value UPS.PowerSummary.PresentStatus.OverTemperature|Feature|03|24|8|0|03 00 00 00 00
+value UPS.PowerSummary.PresentStatus.OverTemperature|Input|03|24|8|0|03 00 00 00 00
+value UPS.PowerSummary.PresentStatus.ShutdownImminent|Feature|02|24|8|0|02 00 00 00 00
+value UPS.PowerSummary.PresentStatus.ShutdownImminent|Input|02|24|8|0|02 00 00 00 00
+value UPS.PowerSummary.PresentStatus.Switchable|Feature|05|0|8|1|05 01
+value UPS.PowerSummary.PresentStatus.Switchable|Input|05|0|8|1|05 01
+value UPS.PowerSummary.RemainingCapacity|Feature|06|0|8|100|06 64 ec 06 00 00
+value UPS.PowerSummary.RemainingCapacity|Input|06|0|8|100|06 64 ec 06 00 00
+value UPS.PowerSummary.RemainingCapacityLimit|Feature|08|0|8|20|08 14
+value UPS.PowerSummary.RemainingCapacityLimitSetting|Feature|12|0|8|20|12 14
+value UPS.PowerSummary.RestartLevel|Feature|0e|0|8|0|0e 00
+value UPS.PowerSummary.RunTimeToEmpty|Feature|06|8|32|1772|06 64 ec 06 00 00
+value UPS.PowerSummary.RunTimeToEmpty|Input|06|8|32|1772|06 64 ec 06 00 00
+value UPS.PowerSummary.Schedule|Feature|11|0|8|0|11 00
+value UPS.PowerSummary.Timer|Feature|18|0|32|7.99688e+07|18 0c 3a c4 04
+value UPS.PowerSummary.Voltage|Feature|07|8|16|25.8|07 1d 02 01

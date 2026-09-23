@@ -1,0 +1,196 @@
+/* Design tokens, modelled on the NutDesk desktop client (Windows 11 / Fluent): neutral grey surfaces, one accent
+   blue, colour only where it carries a status. Light theme by default; dark theme from the system preference unless
+   the user chose light, or when the user chose dark. Status colours come in three roles: -fg (text, AA on -bg and
+   on the surface), -bg (tinted background) and -fill (graphics such as gauge arcs and dots, at least 3:1 against
+   the surface). */
+
+:root {
+  color-scheme: light;
+
+  --font-sans: "Segoe UI Variable Text", "Segoe UI Variable", "Segoe UI", system-ui, -apple-system, Roboto,
+    "Helvetica Neue", "Noto Sans", "Liberation Sans", Arial, sans-serif;
+  --font-display: "Segoe UI Variable Display", "Segoe UI Variable", "Segoe UI", system-ui, -apple-system, Roboto,
+    "Helvetica Neue", "Noto Sans", Arial, sans-serif;
+  --font-mono: ui-monospace, "Cascadia Mono", "SF Mono", "Segoe UI Mono", "Roboto Mono", Menlo, Consolas, "Liberation Mono", monospace;
+
+  /* A few type sizes only: caption, body, subtitle, title, display (gauge numbers scale with their gauge). */
+  --fs-caption: 12px;
+  --fs-body: 14px;
+  --fs-subtitle: 16px;
+  --fs-title: 20px;
+  --fs-display: 28px;
+  --lh: 1.45;
+
+  --sp-1: 4px;
+  --sp-2: 8px;
+  --sp-3: 12px;
+  --sp-4: 16px;
+  --sp-5: 24px;
+  --sp-6: 32px;
+
+  --r-sm: 4px;
+  --r: 8px;
+  --r-full: 999px;
+
+  --appbar-h: 56px;
+  --content-max: 1200px;
+  --content-max-wide: 1480px;
+  --settings-nav-w: 224px;
+
+  --ease: cubic-bezier(0.2, 0.7, 0.2, 1);
+  --dur: 160ms;
+
+  --bg: #f3f3f3;
+  --surface: #ffffff;
+  --surface-2: #f7f7f7;
+  --surface-3: #ebebeb;
+  --hover: rgba(0, 0, 0, 0.04);
+  --pressed: rgba(0, 0, 0, 0.07);
+  --border: #e5e5e5;
+  --card-border: #e5e5e5;
+  --border-strong: #d1d1d1;
+  --control-underline: #8a8a8a;
+  --text: #1b1b1b;
+  --text-muted: #5c5c5c;
+  --text-faint: #6b6b6b;
+  --accent: #0f6cbd;
+  --accent-hover: #115ea3;
+  --accent-contrast: #ffffff;
+  --accent-soft: #ebf3fc;
+  --focus: #0f6cbd;
+  --link: #0f6cbd;
+  --gauge-track: #e6e6e6;
+  --shadow-card: 0 1px 2px rgba(0, 0, 0, 0.04);
+  --shadow-pop: 0 8px 24px rgba(0, 0, 0, 0.14), 0 2px 6px rgba(0, 0, 0, 0.08);
+  --backdrop: rgba(0, 0, 0, 0.4);
+
+  --ok-fg: #0e700e;
+  --ok-bg: #dff6dd;
+  --ok-fill: #0f7b0f;
+  --info-fg: #0f6cbd;
+  --info-bg: #ebf3fc;
+  --info-fill: #0f6cbd;
+  --notice-fg: #4f52b2;
+  --notice-bg: #efeffa;
+  --notice-fill: #6264a7;
+  --warning-fg: #7a4a00;
+  --warning-bg: #fff4ce;
+  --warning-fill: #c96f00;
+  --critical-fg: #b10e1c;
+  --critical-bg: #fde7e9;
+  --critical-fill: #c42b1c;
+  --offline-fg: #5c5c5c;
+  --offline-bg: #ebebeb;
+  --offline-fill: #8a8a8a;
+
+  --chart-1: #0f6cbd;
+  --chart-2: #c2410c;
+  --chart-3: #7c3aed;
+  --chart-4: #0f766e;
+  --chart-grid: #ebebeb;
+  --chart-axis: #6b6b6b;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    color-scheme: dark;
+    --bg: #202020;
+    --surface: #2b2b2b;
+    --surface-2: #323232;
+    --surface-3: #3a3a3a;
+    --hover: rgba(255, 255, 255, 0.06);
+    --pressed: rgba(255, 255, 255, 0.1);
+    --border: #383838;
+    --card-border: transparent;
+    --border-strong: #4a4a4a;
+    --control-underline: #9a9a9a;
+    --text: #ffffff;
+    --text-muted: #c5c5c5;
+    --text-faint: #a0a0a0;
+    --accent: #4cc2ff;
+    --accent-hover: #75d0ff;
+    --accent-contrast: #000000;
+    --accent-soft: #1f3645;
+    --focus: #4cc2ff;
+    --link: #4cc2ff;
+    --gauge-track: #3d3d3d;
+    --shadow-card: none;
+    --shadow-pop: 0 8px 24px rgba(0, 0, 0, 0.5), 0 2px 6px rgba(0, 0, 0, 0.35);
+    --backdrop: rgba(0, 0, 0, 0.6);
+    --ok-fg: #6ccb5f;
+    --ok-bg: #26351f;
+    --ok-fill: #6ccb5f;
+    --info-fg: #4cc2ff;
+    --info-bg: #1f3342;
+    --info-fill: #4cc2ff;
+    --notice-fg: #b3b6ff;
+    --notice-bg: #2b2c4a;
+    --notice-fill: #8e92f0;
+    --warning-fg: #ffc83d;
+    --warning-bg: #433519;
+    --warning-fill: #ffb900;
+    --critical-fg: #ff99a4;
+    --critical-bg: #442726;
+    --critical-fill: #ff6b6b;
+    --offline-fg: #b3b3b3;
+    --offline-bg: #353535;
+    --offline-fill: #8a8a8a;
+    --chart-1: #4cc2ff;
+    --chart-2: #fb923c;
+    --chart-3: #b49cff;
+    --chart-4: #34c7b5;
+    --chart-grid: #383838;
+    --chart-axis: #a0a0a0;
+  }
+}
+
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --bg: #202020;
+  --surface: #2b2b2b;
+  --surface-2: #323232;
+  --surface-3: #3a3a3a;
+  --hover: rgba(255, 255, 255, 0.06);
+  --pressed: rgba(255, 255, 255, 0.1);
+  --border: #383838;
+  --card-border: transparent;
+  --border-strong: #4a4a4a;
+  --control-underline: #9a9a9a;
+  --text: #ffffff;
+  --text-muted: #c5c5c5;
+  --text-faint: #a0a0a0;
+  --accent: #4cc2ff;
+  --accent-hover: #75d0ff;
+  --accent-contrast: #000000;
+  --accent-soft: #1f3645;
+  --focus: #4cc2ff;
+  --link: #4cc2ff;
+  --gauge-track: #3d3d3d;
+  --shadow-card: none;
+  --shadow-pop: 0 8px 24px rgba(0, 0, 0, 0.5), 0 2px 6px rgba(0, 0, 0, 0.35);
+  --backdrop: rgba(0, 0, 0, 0.6);
+  --ok-fg: #6ccb5f;
+  --ok-bg: #26351f;
+  --ok-fill: #6ccb5f;
+  --info-fg: #4cc2ff;
+  --info-bg: #1f3342;
+  --info-fill: #4cc2ff;
+  --notice-fg: #b3b6ff;
+  --notice-bg: #2b2c4a;
+  --notice-fill: #8e92f0;
+  --warning-fg: #ffc83d;
+  --warning-bg: #433519;
+  --warning-fill: #ffb900;
+  --critical-fg: #ff99a4;
+  --critical-bg: #442726;
+  --critical-fill: #ff6b6b;
+  --offline-fg: #b3b3b3;
+  --offline-bg: #353535;
+  --offline-fill: #8a8a8a;
+  --chart-1: #4cc2ff;
+  --chart-2: #fb923c;
+  --chart-3: #b49cff;
+  --chart-4: #34c7b5;
+  --chart-grid: #383838;
+  --chart-axis: #a0a0a0;
+}

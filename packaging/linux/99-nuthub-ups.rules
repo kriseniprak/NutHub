@@ -1,0 +1,107 @@
+# udev rules for NutHub: give the "nuthub" group access to USB UPSes, so the service does not need to run as
+# root. Both nodes of each UPS are covered: the hidraw node, which carries the reports, and the USB device node,
+# which carries the string descriptors and the reset NutHub falls back to when a UPS stops answering. Vendors that
+# only make power equipment match on the vendor id; vendors that also make other USB devices match on the product
+# ids NUT knows (drivers/*-hid.c and nutdrv_qx.c of Network UPS Tools).
+#
+# Installed in /etc/udev/rules.d/ by install.sh and "nuthub service install"; applied to connected devices with
+#   udevadm control --reload-rules && udevadm trigger --subsystem-match=hidraw
+
+ACTION=="remove", GOTO="nuthub_ups_end"
+SUBSYSTEM=="hidraw", GOTO="nuthub_ups_match"
+SUBSYSTEM!="usb", GOTO="nuthub_ups_end"
+ENV{DEVTYPE}!="usb_device", GOTO="nuthub_ups_end"
+LABEL="nuthub_ups_match"
+
+# APC
+ATTRS{idVendor}=="051d", MODE="0660", GROUP="nuthub"
+# Eaton / MGE
+ATTRS{idVendor}=="0463", MODE="0660", GROUP="nuthub"
+# Powerware
+ATTRS{idVendor}=="0592", MODE="0660", GROUP="nuthub"
+# CyberPower
+ATTRS{idVendor}=="0764", MODE="0660", GROUP="nuthub"
+# Tripp Lite
+ATTRS{idVendor}=="09ae", MODE="0660", GROUP="nuthub"
+# Liebert / Vertiv
+ATTRS{idVendor}=="10af", MODE="0660", GROUP="nuthub"
+# Powercom
+ATTRS{idVendor}=="0d9f", MODE="0660", GROUP="nuthub"
+# Delta
+ATTRS{idVendor}=="05dd", MODE="0660", GROUP="nuthub"
+# Salicru
+ATTRS{idVendor}=="2e66", MODE="0660", GROUP="nuthub"
+# Ever
+ATTRS{idVendor}=="2e51", MODE="0660", GROUP="nuthub"
+# Phoenixtec / Liebert OEM
+ATTRS{idVendor}=="06da", MODE="0660", GROUP="nuthub"
+# KSTAR
+ATTRS{idVendor}=="09d6", MODE="0660", GROUP="nuthub"
+# iDowell
+ATTRS{idVendor}=="075d", MODE="0660", GROUP="nuthub"
+# Legrand
+ATTRS{idVendor}=="1cb0", MODE="0660", GROUP="nuthub"
+# AEG
+ATTRS{idVendor}=="2b2d", MODE="0660", GROUP="nuthub"
+# EcoFlow
+ATTRS{idVendor}=="3746", MODE="0660", GROUP="nuthub"
+# Powervar
+ATTRS{idVendor}=="4234", MODE="0660", GROUP="nuthub"
+
+# Vendors that also make other devices: known UPS products only.
+# HP
+ATTRS{idVendor}=="03f0", ATTRS{idProduct}=="0001", MODE="0660", GROUP="nuthub"
+ATTRS{idVendor}=="03f0", ATTRS{idProduct}=="1f06", MODE="0660", GROUP="nuthub"
+ATTRS{idVendor}=="03f0", ATTRS{idProduct}=="1f08", MODE="0660", GROUP="nuthub"
+ATTRS{idVendor}=="03f0", ATTRS{idProduct}=="1f09", MODE="0660", GROUP="nuthub"
+ATTRS{idVendor}=="03f0", ATTRS{idProduct}=="1f0a", MODE="0660", GROUP="nuthub"
+ATTRS{idVendor}=="03f0", ATTRS{idProduct}=="1fe0", MODE="0660", GROUP="nuthub"
+ATTRS{idVendor}=="03f0", ATTRS{idProduct}=="1fe1", MODE="0660", GROUP="nuthub"
+ATTRS{idVendor}=="03f0", ATTRS{idProduct}=="1fe2", MODE="0660", GROUP="nuthub"
+ATTRS{idVendor}=="03f0", ATTRS{idProduct}=="1fe3", MODE="0660", GROUP="nuthub"
+ATTRS{idVendor}=="03f0", ATTRS{idProduct}=="1fe5", MODE="0660", GROUP="nuthub"
+ATTRS{idVendor}=="03f0", ATTRS{idProduct}=="1fe6", MODE="0660", GROUP="nuthub"
+ATTRS{idVendor}=="03f0", ATTRS{idProduct}=="1fe7", MODE="0660", GROUP="nuthub"
+ATTRS{idVendor}=="03f0", ATTRS{idProduct}=="1fe8", MODE="0660", GROUP="nuthub"
+# Dell
+ATTRS{idVendor}=="047c", ATTRS{idProduct}=="ffff", MODE="0660", GROUP="nuthub"
+# IBM
+ATTRS{idVendor}=="04b3", ATTRS{idProduct}=="0001", MODE="0660", GROUP="nuthub"
+# Belkin
+ATTRS{idVendor}=="050d", ATTRS{idProduct}=="0375", MODE="0660", GROUP="nuthub"
+ATTRS{idVendor}=="050d", ATTRS{idProduct}=="0551", MODE="0660", GROUP="nuthub"
+ATTRS{idVendor}=="050d", ATTRS{idProduct}=="0750", MODE="0660", GROUP="nuthub"
+ATTRS{idVendor}=="050d", ATTRS{idProduct}=="0751", MODE="0660", GROUP="nuthub"
+ATTRS{idVendor}=="050d", ATTRS{idProduct}=="0900", MODE="0660", GROUP="nuthub"
+ATTRS{idVendor}=="050d", ATTRS{idProduct}=="0910", MODE="0660", GROUP="nuthub"
+ATTRS{idVendor}=="050d", ATTRS{idProduct}=="0912", MODE="0660", GROUP="nuthub"
+ATTRS{idVendor}=="050d", ATTRS{idProduct}=="0980", MODE="0660", GROUP="nuthub"
+ATTRS{idVendor}=="050d", ATTRS{idProduct}=="0f51", MODE="0660", GROUP="nuthub"
+ATTRS{idVendor}=="050d", ATTRS{idProduct}=="1100", MODE="0660", GROUP="nuthub"
+# STMicroelectronics OEM
+ATTRS{idVendor}=="0483", ATTRS{idProduct}=="a113", MODE="0660", GROUP="nuthub"
+ATTRS{idVendor}=="0483", ATTRS{idProduct}=="a430", MODE="0660", GROUP="nuthub"
+ATTRS{idVendor}=="0483", ATTRS{idProduct}=="0035", MODE="0660", GROUP="nuthub"
+# OpenUPS
+ATTRS{idVendor}=="04d8", ATTRS{idProduct}=="d004", MODE="0660", GROUP="nuthub"
+ATTRS{idVendor}=="04d8", ATTRS{idProduct}=="d005", MODE="0660", GROUP="nuthub"
+# Arduino
+ATTRS{idVendor}=="2341", ATTRS{idProduct}=="0036", MODE="0660", GROUP="nuthub"
+ATTRS{idVendor}=="2341", ATTRS{idProduct}=="8036", MODE="0660", GROUP="nuthub"
+# Arduino
+ATTRS{idVendor}=="2a03", ATTRS{idProduct}=="0036", MODE="0660", GROUP="nuthub"
+ATTRS{idVendor}=="2a03", ATTRS{idProduct}=="0040", MODE="0660", GROUP="nuthub"
+ATTRS{idVendor}=="2a03", ATTRS{idProduct}=="8036", MODE="0660", GROUP="nuthub"
+ATTRS{idVendor}=="2a03", ATTRS{idProduct}=="8040", MODE="0660", GROUP="nuthub"
+# Cypress USB-serial bridge (Voltronic / Megatec)
+ATTRS{idVendor}=="0665", ATTRS{idProduct}=="5161", MODE="0660", GROUP="nuthub"
+# No-name Megatec bridge
+ATTRS{idVendor}=="0001", ATTRS{idProduct}=="0000", MODE="0660", GROUP="nuthub"
+# Ablerex / no-name Megatec bridge
+ATTRS{idVendor}=="ffff", ATTRS{idProduct}=="0000", MODE="0660", GROUP="nuthub"
+# Unitek
+ATTRS{idVendor}=="0f03", ATTRS{idProduct}=="0001", MODE="0660", GROUP="nuthub"
+# GE
+ATTRS{idVendor}=="14f0", ATTRS{idProduct}=="00c9", MODE="0660", GROUP="nuthub"
+
+LABEL="nuthub_ups_end"

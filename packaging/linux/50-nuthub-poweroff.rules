@@ -1,0 +1,16 @@
+// polkit rule for NutHub: lets the "nuthub" service account power off (or reboot) this machine when the UPS that
+// powers it is about to run out of battery. Without it, "systemctl poweroff" run by the service is refused.
+//
+// Installed in /etc/polkit-1/rules.d/ by install.sh and "nuthub service install". The alternative is to run the
+// service as root (User=root in "systemctl edit nuthub.service"), which needs no rule but gives up the isolation
+// of a dedicated account.
+polkit.addRule(function (action, subject) {
+    if (subject.user === "nuthub" &&
+        (action.id === "org.freedesktop.login1.power-off" ||
+         action.id === "org.freedesktop.login1.power-off-multiple-sessions" ||
+         action.id === "org.freedesktop.login1.power-off-ignore-inhibit" ||
+         action.id === "org.freedesktop.login1.reboot" ||
+         action.id === "org.freedesktop.login1.reboot-multiple-sessions")) {
+        return polkit.Result.YES;
+    }
+});

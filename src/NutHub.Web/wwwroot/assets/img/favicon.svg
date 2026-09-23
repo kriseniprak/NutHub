@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
+  <!-- NutHub mark for 16-24 px (favicons, small icons): the nut alone, without the spokes and the bolt. -->
+  <defs>
+    <linearGradient id="bg" x1="48" y1="32" x2="464" y2="480" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#2f5fc4"/>
+      <stop offset="0.55" stop-color="#1f7fd0"/>
+      <stop offset="1" stop-color="#14aec4"/>
+    </linearGradient>
+  </defs>
+  <rect x="16" y="16" width="480" height="480" rx="112" fill="url(#bg)"/>
+  <path d="M436 256L346 100H166L76 256L166 412H346Z" fill="#ffffff" stroke="#ffffff" stroke-width="24" stroke-linejoin="round"/>
+  <circle cx="256" cy="256" r="84" fill="url(#bg)"/>
+</svg>
